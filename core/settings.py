@@ -134,11 +134,15 @@ LOGOUT_REDIRECT_URL = "base:landing"
 
 STORAGES = {
     "default": {
-        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
     },
     "staticfiles": {
         "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
     },
 }
+
+STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
+
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 MEDIA_URL = "/media/"
