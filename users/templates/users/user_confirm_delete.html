@@ -1,0 +1,54 @@
+{% extends 'layouts/base.html' %}
+{% load i18n %}
+
+{% block title %}{% translate "Dar de baja cuenta" %} | GoAway{% endblock %}
+
+{% block content %}
+<div class="bg-gray-950 min-h-screen py-12 px-4 sm:px-6 lg:px-8 flex items-center justify-center text-gray-100">
+  <div class="max-w-md w-full bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl p-8 space-y-6">
+    
+    <div class="mx-auto w-16 h-16 bg-red-500/10 border border-red-500/20 text-red-400 rounded-full flex items-center justify-center animate-pulse">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+      </svg>
+    </div>
+
+    <div class="text-center space-y-2">
+      <h1 class="text-xl font-bold tracking-tight text-white">
+        {% translate "¿Estás absolutamente seguro?" %}
+      </h1>
+      <p class="text-xs text-gray-400 leading-relaxed">
+        {% blocktranslate with email=profile_user.email %}
+          Estás a punto de eliminar de forma permanente la cuenta asociada a <strong>{{ email }}</strong>. Esta acción no se puede deshacer.
+        {% endblocktranslate %}
+      </p>
+    </div>
+
+    <div class="bg-gray-950 border border-gray-800 rounded-xl p-4 text-xs text-gray-400 space-y-2">
+      <p class="font-semibold text-gray-300">{% translate "Al eliminar tu cuenta perderás:" %}</p>
+      <ul class="list-disc list-inside space-y-1 pl-1 text-gray-500">
+        <li>{% translate "El acceso a tu historial de reservas." %}</li>
+        <li>{% translate "Tus mensajes y datos de facturación." %}</li>
+        {% if profile_user.role == 'HOSTER' %}
+          <li class="text-red-400/70">{% translate "Tus anuncios y propiedades publicadas se desactivarán." %}</li>
+        {% endif %}
+      </ul>
+    </div>
+
+    <form method="POST" class="space-y-4 pt-2">
+      {% csrf_token %}
+      
+      <button type="submit" 
+              class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3.5 rounded-xl text-xs uppercase tracking-wider shadow-lg transition-colors cursor-pointer text-center block">
+        {% translate "Sí, eliminar mi cuenta permanentemente" %}
+      </button>
+
+      <a href="{% url 'users:user_detail' %}"
+         class="w-full bg-transparent hover:bg-gray-800 text-gray-400 hover:text-white border border-gray-800 py-3.5 rounded-xl text-xs font-semibold uppercase tracking-wider transition-all text-center block cursor-pointer">
+        {% translate "No, prefiero quedarme" %}
+      </a>
+    </form>
+
+  </div>
+</div>
+{% endblock %}

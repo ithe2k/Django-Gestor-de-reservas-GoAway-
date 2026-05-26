@@ -1,0 +1,54 @@
+{% extends 'layouts/base.html' %}
+{% load i18n %}
+
+{% block title %}{% translate "Crear Cuenta" %}{% endblock %}
+
+{% block content %}
+<div class="flex items-center justify-center min-h-[80vh] bg-gray-50 px-4 py-12">
+    <div class="w-full max-w-lg bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden">
+        
+        <div class="bg-dark-bg py-6 px-8 text-center relative">
+                 <a href="{% url 'base:landing' %}" 
+                    class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </a>
+            <h2 class="text-2xl font-bold text-white tracking-tight uppercase">{% translate "Registrarse" %}</h2>
+        </div>
+
+        <div class="p-8">
+            <form method="post" class="space-y-5">
+                {% csrf_token %}
+                
+                {% if form.non_field_errors %}
+                    <div class="bg-red-50 text-red-600 p-3 rounded-lg text-sm">
+                        {{ form.non_field_errors }}
+                    </div>
+                {% endif %}
+
+                <div class="grid grid-cols-1 gap-4">
+                    {% for field in form %}
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">{{ field.label }}</label>
+                        {{ field }}
+                        {% if field.errors %}
+                            <p class="text-red-500 text-xs mt-1">{{ field.errors.0 }}</p>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <button type="submit" 
+                        class="w-full bg-[#0071c2] hover:bg-[#005999] text-white font-bold py-3 rounded-lg transition-all shadow-lg uppercase tracking-wider text-sm mt-4">
+                    {% translate "Crear Cuenta" %}
+                </button>
+            </form>
+
+            <p class="mt-6 text-center text-xs text-gray-400">
+                {% translate "Al registrarte, aceptas nuestros Términos y Condiciones." %}
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

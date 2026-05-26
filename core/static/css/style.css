@@ -1,0 +1,18 @@
+@keyframes carruselInfinito {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-carrusel {
+  display: flex !important; /* Forzamos el flujo flex */
+  width: max-content;
+  animation: carruselInfinito 40s linear infinite;
+}
+
+.animate-carrusel:hover {
+  animation-play-state: paused;
+}

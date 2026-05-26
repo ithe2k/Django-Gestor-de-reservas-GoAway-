@@ -1,0 +1,45 @@
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE|default:'es' }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>{% block title %}GoAway{% endblock %}</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-bg': '#1a1a1a', 
+                    }
+                }
+            }
+        }
+    </script>
+
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="min-h-screen flex flex-col bg-white text-gray-900">
+
+    <header class="bg-dark-bg text-white shadow-md">
+        {% include '_includes/_navbar.html' %}
+    </header>
+
+    <main class="  flex-grow">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="bg-dark-bg text-gray-400 py-10">
+        {% include '_includes/_footer.html' %}
+    </footer>
+
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

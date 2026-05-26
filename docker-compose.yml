@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:15
+    container_name: gestor_de_reservas
+    restart: always
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=gestor_de_reservas_db
+      - POSTGRES_USER=bx_user
+      - POSTGRES_PASSWORD=mi_password_segura
+    ports:
+      - "5433:5432"
+
+volumes:
+  postgres_data:

@@ -1,0 +1,38 @@
+{% extends 'layouts/base.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="bg-gray-950 min-h-screen py-16 px-4 text-gray-100 flex items-center justify-center">
+    <div class="max-w-md w-full text-center">
+        
+        <div class="mb-8">
+            <div class="w-20 h-20 bg-red-500/10 border border-red-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 15c-.77 1.333.192 3 1.732 3z" />
+                </svg>
+            </div>
+            <h1 class="text-3xl font-black text-white">{% translate "¿De verdad quieres irte?" %}</h1>
+            <p class="text-gray-400 mt-4 leading-relaxed">
+                {% translate "Estás a un paso de cancelar tu reserva en" %} <span class="text-white font-bold">{{ object.propiedad.titulo }}</span>. 
+                {% translate "Ten en cuenta que si lo haces, perderás la oportunidad de disfrutar de un alojamiento en un entorno único y estas fechas se liberarán inmediatamente para otros viajeros." %}
+            </p>
+        </div>
+
+        <div class="bg-gray-900 border border-gray-800 rounded-3xl p-8 space-y-4">
+            <form method="POST">
+                {% csrf_token %}
+                <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-4 rounded-2xl text-xs uppercase tracking-widest transition-all">
+                    {% translate "Sí, cancelar mi oportunidad" %}
+                </button>
+            </form>
+            <a href="{% url 'reservations:detail' object.id %}" class="block w-full bg-gray-800 hover:bg-gray-700 text-white font-bold py-4 rounded-2xl text-xs uppercase tracking-widest transition-all">
+                {% translate "No, prefiero mantenerla" %}
+            </a>
+        </div>
+        
+        <p class="mt-8 text-[10px] text-gray-600 uppercase tracking-widest font-bold">
+            {% translate "Gestión de Propiedades Seguras" %}
+        </p>
+    </div>
+</div>
+{% endblock %}

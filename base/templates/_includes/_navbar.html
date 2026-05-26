@@ -1,0 +1,169 @@
+{% load i18n %}
+
+<nav class="bg-gray-950 border-b border-gray-900 relative z-50">
+  <div class="container mx-auto px-6 py-4">
+    <div class="flex items-center justify-between h-12">
+      
+      <div class="flex items-center gap-2">
+        <a class="text-3xl font-bold tracking-tight text-white" href="{% url 'base:landing' %}">
+          {% translate "GoAway" %}
+        </a>
+      </div>
+
+      <div class="hidden md:flex items-center gap-6 flex-1 justify-end">
+        
+        <form action="{% url 'set_language' %}" method="post" class="flex items-center">
+          {% csrf_token %}
+          <input name="next" type="hidden" value="{{ request.get_full_path }}" />
+          <div class="relative flex items-center">
+            <select name="language" onchange="this.form.submit()" class="bg-gray-800 text-white text-sm rounded-lg border border-gray-700 focus:ring-blue-500 focus:border-blue-500 block p-1.5 pr-8 pl-3 appearance-none cursor-pointer hover:bg-gray-700 transition">
+              {% get_current_language as LANGUAGE_CODE %} 
+              {% get_available_languages as LANGUAGES %} 
+              {% for lang in LANGUAGES %}
+                {% if lang.0 == 'es' %}
+                  <option value="{{ lang.0 }}" {% if lang.0 == LANGUAGE_CODE %}selected{% endif %}>ES 🇪🇸</option>
+                {% elif lang.0 == 'en' %}
+                  <option value="{{ lang.0 }}" {% if lang.0 == LANGUAGE_CODE %}selected{% endif %}>EN 🇬🇧</option>
+                {% else %}
+                  <option value="{{ lang.0 }}" {% if lang.0 == LANGUAGE_CODE %}selected{% endif %}>{{ lang.1|title }} ({{ lang.0|upper }})</option>
+                {% endif %}
+              {% endfor %}
+            </select>
+            <div class="pointer-events-none absolute right-2 text-gray-400">
+              <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
+              </svg>
+            </div>
+          </div>
+        </form>
+
+        <div class="flex items-center gap-4">
+          {% if user.is_authenticated %}
+            <span class="text-xs text-gray-400 font-medium font-mono">👤 {{ user.email }}</span>
+            <span class="text-gray-800">|</span>
+            
+            <a href="{% url 'users:user_detail' %}" class="text-xs font-semibold uppercase tracking-wider text-gray-300 hover:text-white transition-colors">
+              {% translate "Mi Perfil" %}
+            </a>
+
+            <a href="{% url 'reservations:reservations_list' %}" class="text-xs font-semibold uppercase tracking-wider text-gray-300 hover:text-white transition-colors">
+              {% translate "Mis Reservas" %}
+            </a>
+
+            {% if user.role == 'HOST' %}
+              <a href="{% url 'propieties:dashboard' %}" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-4 py-2.5 rounded-xl text-xs uppercase tracking-wider shadow-md transition-colors cursor-pointer">
+                {% translate "Panel de Anfitrión" %}
+              </a>
+            {% endif %}
+
+            <span class="text-gray-800">|</span>
+
+            <form method="POST" action="{% url 'base:logout' %}" class="inline">
+              {% csrf_token %}
+              <button type="submit" class="text-xs font-semibold uppercase tracking-wider text-red-500/80 hover:text-red-400 transition-colors cursor-pointer">
+                {% translate "Cerrar Sesión" %}
+              </button>
+            </form>
+          {% else %}
+            <a href="{% url 'base:login' %}" class="text-xs font-semibold uppercase tracking-wider text-gray-300 hover:text-white transition-colors">
+              {% translate "Iniciar Sesión" %}
+            </a>
+            <a href="{% url 'users:user_create' %}" class="bg-gray-800 hover:bg-gray-700 text-white font-bold px-4 py-2.5 rounded-xl text-xs uppercase tracking-wider transition-colors">
+              {% translate "Registrarse" %}
+            </a>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="flex md:hidden">
+        <button id="hamburger-btn" type="button" class="text-gray-400 hover:text-white focus:outline-none p-2 rounded-lg hover:bg-gray-900 transition-colors">
+          <svg id="icon-open" class="h-6 w-6 block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="icon-close" class="h-6 w-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="hidden md:hidden bg-gray-950 border-t border-gray-900 absolute w-full left-0 shadow-2xl z-50">
+    <div class="px-6 py-6 space-y-4 flex flex-col">
+      
+      <div class="bg-gray-900 p-3 rounded-xl border border-gray-800 flex items-center justify-between">
+        <span class="text-xs text-gray-400 font-semibold uppercase">{% translate "Idioma" %}</span>
+        <form action="{% url 'set_language' %}" method="post" class="flex items-center">
+          {% csrf_token %}
+          <input name="next" type="hidden" value="{{ request.get_full_path }}" />
+          <div class="relative flex items-center">
+            <select name="language" onchange="this.form.submit()" class="bg-gray-800 text-white text-xs rounded-lg border border-gray-700 block p-1.5 pr-8 pl-3 appearance-none">
+              {% for lang in LANGUAGES %}
+                {% if lang.0 == 'es' %}
+                  <option value="{{ lang.0 }}" {% if lang.0 == LANGUAGE_CODE %}selected{% endif %}>ES 🇪🇸</option>
+                {% elif lang.0 == 'en' %}
+                  <option value="{{ lang.0 }}" {% if lang.0 == LANGUAGE_CODE %}selected{% endif %}>EN 🇬🇧</option>
+                {% else %}
+                  <option value="{{ lang.0 }}" {% if lang.0 == LANGUAGE_CODE %}selected{% endif %}>{{ lang.0|upper }}</option>
+                {% endif %}
+              {% endfor %}
+            </select>
+          </div>
+        </form>
+      </div>
+
+      {% if user.is_authenticated %}
+        <div class="text-xs text-gray-400 font-mono bg-gray-900/50 p-2.5 rounded-lg border border-gray-900 text-center">
+          👤 {{ user.email }}
+        </div>
+        
+        <a href="{% url 'users:user_detail' %}" class="text-gray-300 hover:text-white font-medium text-sm py-2.5 border-b border-gray-900 flex items-center gap-2">
+          {% translate "Mi Perfil" %}
+        </a>
+
+        <a href="{% url 'reservations:reservations_list' %}" class="text-gray-300 hover:text-white font-medium text-sm py-2.5 border-b border-gray-900 flex items-center gap-2">
+          {% translate "Mis Reservas" %}
+        </a>
+
+        {% if user.role == 'HOST' %}
+          <a href="{% url 'propieties:dashboard' %}" class="w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl text-xs uppercase tracking-wider shadow-md block transition-colors">
+            {% translate "Panel de Anfitrión" %}
+          </a>
+        {% endif %}
+
+        <form method="POST" action="{% url 'base:logout' %}" class="w-full mt-2">
+          {% csrf_token %}
+          <button type="submit" class="w-full text-center bg-gray-900 hover:bg-red-950/30 text-red-400 hover:text-red-300 font-bold py-3 rounded-xl text-xs uppercase tracking-wider border border-gray-800 transition-colors cursor-pointer">
+            {% translate "Cerrar Sesión" %}
+          </button>
+        </form>
+      {% else %}
+        <a href="{% url 'base:login' %}" class="text-center text-gray-300 hover:text-white font-semibold py-3 border border-gray-800 rounded-xl text-xs uppercase tracking-wider">
+          {% translate "Iniciar Sesión" %}
+        </a>
+        <a href="{% url 'users:user_create' %}" class="w-full text-center bg-gray-800 hover:bg-gray-700 text-white font-bold py-3 rounded-xl text-xs uppercase tracking-wider block">
+          {% translate "Registrarse" %}
+        </a>
+      {% endif %}
+
+    </div>
+  </div>
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const btn = document.getElementById('hamburger-btn');
+    const menu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('icon-open');
+    const iconClose = document.getElementById('icon-close');
+
+    if (btn && menu) {
+      btn.addEventListener('click', function () {
+        menu.classList.toggle('hidden');
+        iconOpen.classList.toggle('hidden');
+        iconClose.classList.toggle('hidden');
+      });
+    }
+  });
+</script>

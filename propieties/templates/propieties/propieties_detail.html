@@ -1,0 +1,243 @@
+{% extends 'layouts/base.html' %} 
+{% load i18n %} 
+
+{% block title %}{{ propiedad.titulo }} | GoAway{% endblock %} 
+
+{% block content %}
+<div class="bg-gray-950 min-h-screen py-12 px-4 sm:px-6 lg:px-8 text-gray-100">
+  <div class="max-w-5xl mx-auto bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl overflow-hidden">
+    
+    <div class="relative">
+      {% if propiedad.imagen_principal %}
+      <div class="h-96 overflow-hidden bg-gray-800 relative">
+        <img src="{{ propiedad.imagen_principal.url }}" alt="{% translate 'Imagen principal de' %} {{ propiedad.titulo }}" class="w-full h-full object-cover" />
+      </div>
+      {% else %}
+      <div class="h-96 bg-gradient-to-br from-blue-900/40 to-gray-800 flex items-center justify-center text-gray-600">
+        <div class="text-center">
+          <p class="text-4xl">📸</p>
+          <p class="text-sm mt-2">{% translate "Sin imágenes disponibles" %}</p>
+        </div>
+      </div>
+      {% endif %}
+
+      <span class="absolute bottom-6 left-6 bg-blue-600 text-white text-sm font-bold px-4 py-2 rounded-xl shadow-lg">
+        {{ propiedad.precio_por_noche }}€ / {% translate "noche" %}
+      </span>
+    </div>
+
+    <div class="p-8 space-y-8">
+      <div>
+        <span class="text-xs font-bold text-blue-400 uppercase tracking-wider">📍 {{ propiedad.ciudad }}</span>
+        <h1 class="text-3xl font-extrabold text-white mt-1">
+          {{ propiedad.titulo }}
+        </h1>
+        <p class="text-gray-400 text-xs mt-2">
+          📍 {% translate "Dirección:" %} {{ propiedad.direccion }}
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 bg-gray-950 p-4 rounded-xl border border-gray-800 text-center">
+        <div>
+          <p class="text-xs text-gray-500 font-medium">📐 {% translate "Superficie" %}</p>
+          <p class="text-sm font-bold text-white mt-0.5">
+            {% blocktranslate with tamano=propiedad.tamano %}{{ tamano }} m²{% endblocktranslate %}
+          </p>
+        </div>
+        <div>
+          <p class="text-xs text-gray-500 font-medium">👥 {% translate "Capacidad" %}</p>
+          <p class="text-sm font-bold text-white mt-0.5">
+            {% blocktranslate with max=propiedad.capacidad_maxima %}{{ max }} Huéspedes{% endblocktranslate %}
+          </p>
+        </div>
+        <div class="col-span-2 sm:col-span-1">
+          <p class="text-xs text-gray-500 font-medium">📅 {% translate "Publicado el" %}</p>
+          <p class="text-sm font-bold text-white mt-0.5">
+            {{ propiedad.fecha_creacion|date:"d/m/Y" }}
+          </p>
+        </div>
+      </div>
+
+      <div class="space-y-2">
+        <h2 class="text-sm font-bold text-white uppercase tracking-wider border-b border-gray-800 pb-2">
+          {% translate "Descripción del alojamiento" %}
+        </h2>
+        <p class="text-gray-300 text-sm leading-relaxed">
+          {% if propiedad.descripcion %}
+            {{ propiedad.descripcion }}
+          {% else %}
+            {% translate "Sin descripción disponible." %}
+          {% endif %}
+        </p>
+      </div>
+
+      <div class="space-y-3">
+        <h2 class="text-sm font-bold text-white uppercase tracking-wider border-b border-gray-800 pb-2">
+          {% translate "Qué ofrece este lugar" %}
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-gray-300">
+          <div class="flex items-center gap-2">
+            {% if propiedad.tiene_wifi %}✅{% else %}❌{% endif %} 📶 {% translate "Wi-Fi" %}
+          </div>
+          <div class="flex items-center gap-2">
+            {% if propiedad.tiene_piscina %}✅{% else %}❌{% endif %} 🏊 {% translate "Piscina" %}
+          </div>
+          <div class="flex items-center gap-2">
+            {% if propiedad.tiene_jardin %}✅{% else %}❌{% endif %} 🏡 {% translate "Jardín" %}
+          </div>
+          <div class="flex items-center gap-2">
+            {% if propiedad.admite_mascotas %}✅{% else %}❌{% endif %} 🐾 {% translate "Admite Mascotas" %}
+          </div>
+          <div class="flex items-center gap-2">
+            {% if propiedad.tiene_aire_acondicionado %}✅{% else %}❌{% endif %} ❄️ {% translate "Aire Acondicionado" %}
+          </div>
+        </div>
+      </div>
+
+      {% if propiedad.imagenes.all %}
+      <div class="space-y-4 pt-6 border-t border-gray-800">
+        <h2 class="text-sm font-bold text-white uppercase tracking-wider">
+          {% translate "Galería de fotos" %}
+        </h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+          {% for imagen in propiedad.imagenes.all %}
+          <div class="js-gallery-item relative group rounded-lg overflow-hidden bg-gray-950 border border-gray-800 hover:border-blue-500 transition-colors cursor-pointer h-32"
+               data-url="{{ imagen.imagen.url }}">
+            <img src="{{ imagen.imagen.url }}" alt="{% translate 'Imagen de' %} {{ propiedad.titulo }}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+            
+            <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+              <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
+              </svg>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+
+      <div class="border-t border-gray-800 pt-6 mt-8">
+        {% if request.user == propiedad.anfitrion or request.user.is_staff %}
+        <div class="flex flex-col sm:flex-row items-center justify-end gap-4">
+          
+          {% if request.GET.from == 'profile' %}
+            <a href="{% url 'users:user_detail' %}" class="px-5 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider text-gray-400 hover:text-white transition-colors">
+              {% translate "Volver a mi Perfil" %}
+            </a>
+          {% else %}
+            <a href="{% url 'propieties:dashboard' %}" class="px-5 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider text-gray-400 hover:text-white transition-colors">
+              {% translate "Volver al Dashboard" %}
+            </a>
+          {% endif %}
+
+          <a href="{% url 'propieties:update' propiedad.id %}" class="w-full sm:w-auto bg-gray-800 hover:bg-gray-700 text-gray-200 border border-gray-700 font-bold px-6 py-3 rounded-xl text-xs uppercase tracking-wider transition-colors text-center cursor-pointer">
+            {% translate "Editar Propiedad" %}
+          </a>
+          <a href="{% url 'propieties:delete' propiedad.id %}" class="w-full sm:w-auto bg-red-600 hover:bg-red-700 text-white font-bold px-6 py-3 rounded-xl text-xs uppercase tracking-wider shadow-lg transition-colors text-center cursor-pointer">
+            {% translate "Eliminar Propiedad" %}
+          </a>
+        </div>
+
+        {% else %}
+        <div class="space-y-6">
+          {% if request.GET.check_in and request.GET.check_out %}
+          <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6 shadow-xl space-y-4">
+            <div class="flex items-center justify-between border-b border-gray-800 pb-4">
+              <div>
+                <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider">
+                  {% translate "Estancia Seleccionada" %}
+                </h3>
+                <p class="text-xs text-blue-400 font-medium mt-0.5">
+                  {{ request.GET.check_in }} {% translate "al" %} {{ request.GET.check_out }}
+                </p>
+              </div>
+              <div class="text-right">
+                <span class="text-xl font-mono font-extrabold text-white">{{ propiedad.precio_por_noche }}€</span>
+                <span class="text-[10px] text-gray-500 block uppercase">/ {% translate "noche" %}</span>
+              </div>
+            </div>
+
+            <form method="POST" action="{% url 'reservations:create' propiedad.id %}">
+              {% csrf_token %}
+              <input type="hidden" name="check_in" value="{{ request.GET.check_in }}" />
+              <input type="hidden" name="check_out" value="{{ request.GET.check_out }}" />
+              <input type="hidden" name="huespedes_totales" value="{{ request.GET.huespedes|default:1 }}" />
+
+              {% if user.is_authenticated %}
+              <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-xl text-xs uppercase tracking-wider shadow-lg transition-colors cursor-pointer text-center block">
+                {% translate "Confirmar y Reservar Ahora" %}
+              </button>
+              {% else %}
+              <a href="{% url 'base:login' %}?next={{ request.get_full_path }}" class="w-full bg-gray-800 hover:bg-gray-700 text-gray-300 font-bold py-3.5 rounded-xl text-xs uppercase tracking-wider text-center block border border-gray-700/60 transition-colors">
+                {% translate "Inicia sesión para reservar" %}
+              </a>
+              {% endif %}
+            </form>
+          </div>
+          {% endif %}
+
+          <div class="flex justify-start">
+            <button onclick="window.history.back();"
+                    class="px-5 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider text-gray-400 hover:text-white transition-colors bg-gray-950 border border-gray-800 hover:border-gray-700 shadow-md cursor-pointer">
+              {% translate "← Volver al listado de búsqueda" %}
+            </button>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div id="galleryModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm transition-opacity duration-300">
+  <button id="closeModal" class="absolute top-6 right-6 text-gray-400 hover:text-white bg-gray-900/60 border border-gray-800 rounded-full p-2.5 transition-colors focus:outline-none cursor-pointer">
+    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+    </svg>
+  </button>
+  
+  <div class="max-w-4xl max-h-[85vh] overflow-hidden rounded-xl border border-gray-800 bg-gray-950 shadow-2xl">
+    <img id="modalImage" src="" alt="{% translate 'Imagen ampliada' %}" class="w-full h-full object-contain max-h-[85vh]">
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('galleryModal');
+    const modalImg = document.getElementById('modalImage');
+    const closeBtn = document.getElementById('closeModal');
+    const galleryItems = document.querySelectorAll('.js-gallery-item');
+
+    // 1. Abrir Modal al hacer clic en cualquier miniatura
+    galleryItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const fullImageUrl = item.getAttribute('data-url');
+        modalImg.src = fullImageUrl;
+        modal.classList.remove('hidden');
+        document.body.classList.add('overflow-hidden'); // Evita scroll de fondo
+      });
+    });
+
+    // 2. Función interna para cerrar el modal
+    const closeModal = () => {
+      modal.classList.add('hidden');
+      modalImg.src = ''; // Limpiamos origen para optimizar memoria
+      document.body.classList.remove('overflow-hidden');
+    };
+
+    // 3. Eventos de cierre (Botón, Tecla Escape y clic fuera de la imagen)
+    closeBtn.addEventListener('click', closeModal);
+    
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+        closeModal();
+      }
+    });
+  });
+</script>
+{% endblock %}

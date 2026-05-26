@@ -1,0 +1,128 @@
+[
+{
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$RChGwBCtLlLsOUZxZttvhx$Z7meXpm8Ey/j0ieowUOtZV82kDRVQMOBgikeyI85NdM=",
+        "last_login": "2026-05-25T02:31:28.632Z",
+        "is_superuser": true,
+        "first_name": "bx",
+        "last_name": "admin",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2026-05-18T10:39:33Z",
+        "email": "bx@bx.com",
+        "document_number": null,
+        "phone_number": null,
+        "country": null,
+        "role": "DEFAULT",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.user",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$N7XRAKouRCq2HmHRO3rALd$2G/dACwGXwhJwXbUS+GjdtC4mFDAT4a53mChjnmPP2s=",
+        "last_login": "2026-05-23T23:13:54.948Z",
+        "is_superuser": false,
+        "first_name": "host1",
+        "last_name": "-",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-05-23T22:35:45.817Z",
+        "email": "host1@host.com",
+        "document_number": "00000001H",
+        "phone_number": "123456789",
+        "country": "AQ",
+        "role": "HOST",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.user",
+    "pk": 5,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$pqvD3K01hkP4EJhmwAcxbU$VqLxR7o2lHlTnSgya4O4PRfn1JsGhA2AnUOl+02sWz4=",
+        "last_login": "2026-05-24T23:07:12.468Z",
+        "is_superuser": false,
+        "first_name": "host2",
+        "last_name": "-",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-05-23T22:37:17Z",
+        "email": "host2@host.com",
+        "document_number": "00000002H",
+        "phone_number": "123456788",
+        "country": "AG",
+        "role": "HOST",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.user",
+    "pk": 6,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$hdg2hWkCq5YOePmnvFvkLm$+BDf4vrxeJzT8bg1t/bSgea3dANs+wWUq+PjtdXG+RQ=",
+        "last_login": "2026-05-25T02:30:31.594Z",
+        "is_superuser": false,
+        "first_name": "host3",
+        "last_name": "-",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-05-23T22:38:38Z",
+        "email": "host3@host.com",
+        "document_number": "00000003H",
+        "phone_number": "123456777",
+        "country": "AW",
+        "role": "HOST",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.user",
+    "pk": 7,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$nRIe4fxqQA8uzq6LHWnja2$am3j54GoFyUQzPj4WCZdd8+MSgQUW6r20NbCTM7vzLs=",
+        "last_login": "2026-05-24T00:09:05.017Z",
+        "is_superuser": false,
+        "first_name": "guest1",
+        "last_name": "-",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-05-23T22:40:35Z",
+        "email": "guest1@guest.com",
+        "document_number": "00000001G",
+        "phone_number": "123456786",
+        "country": "BB",
+        "role": "GUEST",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.user",
+    "pk": 8,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$V34XnMI3C0drO7DcSL6Lhu$VNovtWz6lmYUSHQQu455oi+TueIuAR8OxKWNvL5iFCA=",
+        "last_login": "2026-05-24T01:18:56.352Z",
+        "is_superuser": false,
+        "first_name": "guest2",
+        "last_name": "-",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-05-23T22:41:49Z",
+        "email": "guest2@guest.com",
+        "document_number": "00000042G",
+        "phone_number": "123456987",
+        "country": "BE",
+        "role": "GUEST",
+        "groups": [],
+        "user_permissions": []
+    }
+}
+]

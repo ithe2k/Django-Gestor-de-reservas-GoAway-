@@ -1,0 +1,200 @@
+{% extends 'layouts/base.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="bg-gray-950 min-h-screen py-12 px-4 sm:px-6 lg:px-8 text-white">
+    <div class="max-w-6xl mx-auto">
+        
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-10 border-b border-gray-900 pb-6">
+            <div class="flex items-center gap-4">
+                {% if request.GET.from == 'list' %}
+                    <a href="{% url 'reservations:reservations_list' %}" class="bg-gray-900 p-3 rounded-xl border border-gray-800 hover:bg-gray-800 transition-all">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                        </svg>
+                    </a>
+                {% else %}
+                    <a href="{% url 'users:user_detail' %}" class="bg-gray-900 p-3 rounded-xl border border-gray-800 hover:bg-gray-800 transition-all">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                        </svg>
+                    </a>
+                {% endif %}
+
+                <div>
+                    <h1 class="text-2xl font-black text-white">{% translate "Detalles de tu Estancia" %}</h1>
+                    <p class="text-xs text-gray-500 font-medium tracking-widest uppercase mt-1"> {% translate "ID Reserva" %}: #{{ reservation.id }}</p>
+                </div>
+            </div>
+            
+            <span class="px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-wider border
+                {% if reservation.status == 'COMPLETED' %} bg-emerald-500/10 text-emerald-400 border-emerald-500/20
+                {% elif reservation.status == 'PENDING' %} bg-amber-500/10 text-amber-400 border-amber-500/20
+                {% else %} bg-gray-800 text-gray-400 border-gray-700 {% endif %}">
+                {{ reservation.get_status_display }}
+            </span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <div class="lg:col-span-2 space-y-6">
+                <div class="bg-gray-900 border border-gray-800 rounded-3xl overflow-hidden shadow-2xl">
+                    
+                    {% if reservation.propiedad.imagen_principal %}
+                        <img src="{{ reservation.propiedad.imagen_principal.url }}" alt="{{ reservation.propiedad.titulo }}" class="w-full h-72 object-cover">
+                    {% elif reservation.propiedad.imagenes.first %}
+                        <img src="{{ reservation.propiedad.imagenes.first.imagen.url }}" alt="{{ reservation.propiedad.titulo }}" class="w-full h-72 object-cover">
+                    {% else %}
+                        <div class="w-full h-72 bg-gray-800 flex items-center justify-center">
+                            <span class="text-gray-600 text-xs uppercase font-bold">{% translate "Sin imagen disponible" %}</span>
+                        </div>
+                    {% endif %}
+                    
+                    <div class="p-8">
+                        <h2 class="text-2xl font-bold text-white mb-2">{{ reservation.propiedad.titulo }}</h2>
+                        <div class="flex items-center text-gray-400 text-sm gap-2 mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                            {{ reservation.propiedad.ciudad }}, {{ reservation.propiedad.pais }}
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-4 border-t border-gray-800 pt-8">
+                            <div class="bg-gray-950 p-4 rounded-2xl border border-gray-800/50">
+                                <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1">{% translate "Check-in" %}</p>
+                                <p class="text-lg font-semibold text-emerald-400">{{ reservation.check_in|date:"d M Y" }}</p>
+                            </div>
+                            <div class="bg-gray-950 p-4 rounded-2xl border border-gray-800/50">
+                                <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1">{% translate "Check-out" %}</p>
+                                <p class="text-lg font-semibold text-emerald-400">{{ reservation.check_out|date:"d M Y" }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {% if reservation.propiedad.imagenes.exists %}
+                <div class="bg-gray-900 border border-gray-800 rounded-3xl p-8 shadow-2xl">
+                    <h3 class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">{% translate "Galería del alojamiento" %}</h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                        {% for img_obj in reservation.propiedad.imagenes.all %}
+                            <div class="js-gallery-item h-28 rounded-xl overflow-hidden border border-gray-800 relative group cursor-pointer hover:border-blue-500 transition-colors"
+                                 data-url="{{ img_obj.imagen.url }}">
+                                <img src="{{ img_obj.imagen.url }}" alt="{{ reservation.propiedad.titulo }}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                                
+                                <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                                    <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
+                                    </svg>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="space-y-6">
+                <div class="bg-gray-900 border border-gray-800 rounded-3xl p-8 shadow-2xl">
+                    <h3 class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-6">{% translate "Resumen Económico" %}</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-500">{% translate "Precio por noche" %}</span>
+                            <span class="text-white font-mono">{{ reservation.precio_por_noche }}€</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-500">{% translate "Huéspedes" %}</span>
+                            <span class="text-white font-mono">{{ reservation.huespedes_totales }}</span>
+                        </div>
+                        <div class="pt-4 border-t border-gray-800 flex justify-between items-end">
+                            <span class="text-gray-400 font-bold uppercase text-xs">{% translate "Total Pagado" %}</span>
+                            <span class="text-3xl font-black text-blue-500">{{ reservation.precio_total }}€</span>
+                        </div>
+                    </div>
+                </div>
+
+                {% if reservation.status == "PENDING" %}
+                    <div class="p-5 bg-yellow-500/10 border border-yellow-500/20 rounded-2xl flex flex-col gap-4">
+                        <div class="flex items-start gap-3">
+                            <span class="text-xl mt-0.5">💳</span>
+                            <div>
+                                <p class="text-sm font-bold text-white">{% translate "Tu estancia aún no está asegurada" %}</p>
+                                <p class="text-xs text-gray-400 mt-1">{% translate "Realiza el pago para confirmar las fechas inmediatamente" %}</p>
+                            </div>
+                        </div>
+                        <a href="{% url 'reservations:payment' reservation.id %}?from={{ request.GET.from }}" 
+                           class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl text-xs uppercase tracking-widest text-center transition-all shadow-lg shadow-emerald-900/30 block">
+                            {% translate "Proceder al Pago" %} ({{ reservation.precio_total }}€)
+                        </a>
+                    </div>
+                {% endif %}
+
+                <div class="space-y-3">
+                    <a href="{% url 'reservations:update' reservation.id %}" class="block w-full bg-gray-800 hover:bg-gray-700 text-white text-center font-bold py-4 rounded-2xl text-xs uppercase tracking-widest transition-all border border-gray-700">
+                        {% translate "Modificar Fechas" %}
+                    </a>
+                    <a href="{% url 'reservations:delete' reservation.id %}" class="block w-full bg-gray-800 hover:bg-gray-700 text-red-500 text-center font-bold py-4 rounded-2xl text-xs uppercase tracking-widest transition-all border border-gray-700">
+                        {% translate "Cancelar Reserva" %}
+                    </a>
+                </div>
+                
+                <p class="text-[10px] text-gray-500 text-center px-4 leading-relaxed">
+                    {% translate "Al modificar o cancelar, recuerda que las fechas se liberarán inmediatamente para otros usuarios." %}
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div id="galleryModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm transition-opacity duration-300">
+    <button id="closeModal" class="absolute top-6 right-6 text-gray-400 hover:text-white bg-gray-900/60 border border-gray-800 rounded-full p-2.5 transition-colors focus:outline-none cursor-pointer">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+    </button>
+    
+    <div class="max-w-4xl max-h-[85vh] overflow-hidden rounded-xl border border-gray-800 bg-gray-950 shadow-2xl">
+        <img id="modalImage" src="" alt="{% translate 'Imagen ampliada' %}" class="w-full h-full object-contain max-h-[85vh]">
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const modal = document.getElementById('galleryModal');
+        const modalImg = document.getElementById('modalImage');
+        const closeBtn = document.getElementById('closeModal');
+        const galleryItems = document.querySelectorAll('.js-gallery-item');
+
+        // Abrir visor
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const fullImageUrl = item.getAttribute('data-url');
+                modalImg.src = fullImageUrl;
+                modal.classList.remove('hidden');
+                document.body.classList.add('overflow-hidden');
+            });
+        });
+
+        // Cerrar visor
+        const closeModal = () => {
+            modal.classList.add('hidden');
+            modalImg.src = '';
+            document.body.classList.remove('overflow-hidden');
+        };
+
+        closeBtn.addEventListener('click', closeModal);
+        
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
+    });
+</script>
+{% endblock %}

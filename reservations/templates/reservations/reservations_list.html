@@ -1,0 +1,109 @@
+{% extends 'layouts/base.html' %}
+{% load i18n %}
+
+{% block title %} {% translate "Mis Reservas" %} | GoAway{% endblock %}
+
+{% block content %}
+<div class="bg-gray-950 min-h-screen py-12 px-4 sm:px-6 lg:px-8 text-gray-100">
+    <div class="max-w-6xl mx-auto">
+        
+        <div class="mb-12">
+            <h1 class="text-4xl font-extrabold text-white mb-2">
+                📅  {% translate "Mis Reservas" %}</h1>
+            <p class="text-gray-400 top-gap-50" > {% translate "Gestiona todas tus reservas y estancias" %} </p>
+        </div>
+
+        {% if reservations %}
+            <div class="grid gap-6">
+                {% for reservation in reservations %}
+    <a href="{% url 'reservations:detail' reservation.id %}?from=list" class="block group text-current no-underline">
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl overflow-hidden group-hover:border-blue-500 transition-colors shadow-lg">
+            <div class="p-6 flex flex-col sm:flex-row gap-6">
+                
+                {% if reservation.propiedad.imagen_principal %}
+                    <div class="sm:w-48 h-48 overflow-hidden rounded-lg flex-shrink-0">
+                        <img src="{{ reservation.propiedad.imagen_principal.url }}" 
+                             alt="{{ reservation.propiedad.titulo }}"
+                             class="w-full h-full object-cover">
+                    </div>
+                {% else %}
+                    <div class="sm:w-48 h-48 bg-gray-800 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <p class="text-2xl">📸</p>
+                    </div>
+                {% endif %}
+
+                <div class="flex-1 space-y-4">
+                    
+                    <div>
+                        <h2 class="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">{{ reservation.propiedad.titulo }}</h2>
+                        <p class="text-sm text-gray-400">📍 {{ reservation.propiedad.ciudad }}, {{ reservation.propiedad.direccion }}</p>
+                    </div>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                        <div>
+                            <p class="text-xs text-gray-500">{% translate "Entrada" %}</p>
+                            <p class="text-lg font-semibold text-white">{{ reservation.check_in|date:"d/m/Y" }}</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-500">{% translate "Salida" %}</p>
+                            <p class="text-lg font-semibold text-white">{{ reservation.check_out|date:"d/m/Y" }}</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-500"> {% translate "Huéspedes" %} </p>
+                            <p class="text-lg font-semibold text-white">{{ reservation.huespedes_totales }}</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-800">
+                        <div class="flex items-center gap-3">
+                            {% if reservation.status == "PENDING" %}
+                                <span class="px-3 py-1 bg-yellow-500/20 border border-yellow-500/30 text-yellow-400 rounded-full text-xs font-semibold">
+                                    ⏳ {% translate "Pendiente de Pago" %}
+                                </span>
+                            {% elif reservation.status == "CONFIRMED" %}
+                                <span class="px-3 py-1 bg-green-500/20 border border-green-500/30 text-green-400 rounded-full text-xs font-semibold">
+                                    ✅ {% translate "Confirmada" %}
+                                </span>
+                            {% elif reservation.status == "CANCELED" %}
+                                <span class="px-3 py-1 bg-red-500/20 border border-red-500/30 text-red-400 rounded-full text-xs font-semibold">
+                                    ❌ {% translate "Cancelada" %}
+                                </span>
+                            {% elif reservation.status == "COMPLETED" %}
+                                <span class="px-3 py-1 bg-blue-500/20 border border-blue-500/30 text-blue-400 rounded-full text-xs font-semibold">
+                                    ✓ {% translate "Completada" %}
+                                </span>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="text-right">
+                            <p class="text-xs text-gray-500">{% translate "Total" %}</p>
+                            <p class="text-2xl font-bold text-blue-400">{{ reservation.precio_total }}€</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </a>
+{% empty %}
+    <div class="text-center py-12 bg-gray-900 border border-gray-800 rounded-2xl">
+        <p class="text-xs text-gray-500">{% translate "No hay ninguna reserva registrada en el sistema." %}</p>
+    </div>
+{% endfor %}
+            </div>
+
+        {% else %}
+            <div class="bg-gray-900 border border-gray-800 rounded-2xl p-12 text-center">
+                <div class="text-5xl mb-4">🏖️</div>
+                <h2 class="text-2xl font-bold text-white mb-2"> {% translate "No tienes reservas" %} </h2>
+                <p class="text-gray-400 mb-6">{% translate "Aún no has realizado ninguna reserva" %}</p>
+                <a href="{% url 'base:landing' %}"
+                   class="inline-block px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-colors">
+                    🔍 {% translate "Explorar propiedades" %}
+                </a>
+            </div>
+        {% endif %}
+
+    </div>
+</div>
+{% endblock %}

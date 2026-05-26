@@ -1,0 +1,120 @@
+{% extends 'layouts/base.html' %}
+{% load i18n %}
+
+{% block title %}{% translate "Mi Perfil" %} | GoAway{% endblock %}
+
+{% block content %}
+<div class="bg-gray-950 min-h-screen py-12 px-4 sm:px-6 lg:px-8 text-gray-100">
+  <div class="max-w-4xl mx-auto space-y-8">
+    
+    <div class="bg-gray-900 rounded-2xl border border-gray-800 shadow-2xl overflow-hidden">
+      <div class="bg-gradient-to-r from-blue-900/30 to-gray-900 p-8 border-b border-gray-800">
+        <div class="flex items-center gap-4">
+          <div class="w-14 h-14 rounded-xl bg-blue-600 flex items-center justify-center text-2xl font-bold text-white uppercase select-none">
+            {{ profile_user.first_name|default:profile_user.email|slice:":1" }}
+          </div>
+          <div>
+            <h1 class="text-2xl font-bold tracking-tight text-white">{% translate "Mis Datos Personales" %}</h1>
+            <p class="text-xs text-gray-400 mt-0.5">{% translate "Gestiona la información de tu cuenta y seguridad" %}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-8 space-y-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div class="flex flex-col gap-1 bg-gray-950 p-4 rounded-xl border border-gray-800/60">
+            <span class="text-[10px] font-semibold text-gray-500 uppercase tracking-wider">{% translate "Nombre completo" %}</span>
+            <span class="text-sm font-medium text-gray-200">
+              {% if profile_user.first_name %}
+                {{ profile_user.first_name }} {{ profile_user.last_name }}
+              {% else %}
+                —
+              {% endif %}
+            </span>
+          </div>
+
+          <div class="flex flex-col gap-1 bg-gray-950 p-4 rounded-xl border border-gray-800/60">
+            <span class="text-[10px] font-semibold text-gray-500 uppercase tracking-wider">{% translate "Documento de Identidad" %}</span>
+            <span class="text-sm font-medium text-gray-200">{{ profile_user.document_number|default:"—" }}</span>
+          </div>
+
+          <div class="flex flex-col gap-1 bg-gray-950 p-4 rounded-xl border border-gray-800/60">
+            <span class="text-[10px] font-semibold text-gray-500 uppercase tracking-wider">{% translate "Correo Electrónico" %}</span>
+            <span class="text-sm font-medium text-gray-200">{{ profile_user.email }}</span>
+          </div>
+
+          <div class="flex flex-col gap-1 bg-gray-950 p-4 rounded-xl border border-gray-800/60">
+            <span class="text-[10px] font-semibold text-gray-500 uppercase tracking-wider">{% translate "Teléfono de contacto" %}</span>
+            <span class="text-sm font-medium text-gray-200">{{ profile_user.phone_number|default:"—" }}</span>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-gray-800 pt-6 mt-8">
+          <a href="{% url 'users:user_delete' %}" class="text-xs font-semibold text-red-400/80 hover:text-red-400 transition-colors uppercase tracking-wider cursor-pointer py-2">
+            {% translate "Eliminar mi cuenta" %}
+          </a>
+          <a href="{% url 'users:user_update' %}" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-xl text-xs uppercase tracking-wider shadow-lg transition-colors text-center cursor-pointer">
+            {% translate "Actualizar Datos" %}
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 {% if profile_user.role == 'HOST' %}md:grid-cols-2{% endif %} gap-8">
+      
+      <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6 space-y-4 shadow-xl">
+        <h2 class="text-base font-bold text-white flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-green-500"></span>
+          {% translate "Mis Últimas Reservas" %}
+        </h2>
+        <div class="space-y-3">
+          {% for booking in my_bookings|slice:":3" %}
+            <div class="bg-gray-950 p-4 rounded-xl border border-gray-800 flex justify-between items-center text-xs hover:border-gray-700 transition-all gap-4">
+              <div>
+                <p class="font-semibold text-gray-200">{{ booking.propiedad.titulo }}</p>
+                <p class="text-gray-500 mt-0.5">{{ booking.check_in }} al {{ booking.check_out }}</p>
+              </div>
+              <div class="flex items-center gap-3 shrink-0">
+                <span class="bg-gray-800 px-2.5 py-1 rounded text-gray-400 font-mono font-medium">{{ booking.precio_total }}€</span>
+                <a class="text-green-400 font-bold hover:text-green-300 transition-colors uppercase text-[10px]" href="{% url 'reservations:detail' booking.id %}?from=profile">
+                    {% translate "Gestionar"%}
+                </a>
+              </div>
+            </div>
+          {% empty %}
+            <p class="text-xs text-gray-500 py-2">{% translate "Aún no has realizado ninguna reserva en la plataforma." %}</p>
+          {% endfor %}
+        </div>
+      </div>
+
+      {% if profile_user.role == 'HOST' %}
+      <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6 space-y-4 shadow-xl">
+        <h2 class="text-base font-bold text-white flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+          {% translate "Mis Propiedades en Alquiler" %}
+        </h2>
+        <div class="space-y-3">
+          {% for property in my_properties|slice:":3" %}
+            <div class="bg-gray-950 p-4 rounded-xl border border-gray-800 flex justify-between items-center text-xs hover:border-gray-700 transition-all gap-4">
+              <span class="font-semibold text-gray-200 truncate">{{ property.titulo }}</span>
+              <div class="flex items-center gap-3 shrink-0">
+                <span class="text-blue-400 font-medium">{{ property.precio_por_noche }}€ / {% translate "noche" %}</span>
+                <a class="text-blue-500 font-bold hover:text-blue-400 transition-colors uppercase text-[10px]" href="{% url 'propieties:detail' property.id %}?from=profile">
+                  {% translate "Ver" %}
+                </a>
+              </div>
+            </div>
+          {% empty %}
+            <p class="text-xs text-gray-500 py-2">
+              {% translate "No tienes propiedades registradas todavía." %}
+            </p>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+
+    </div>
+
+  </div>
+</div>
+{% endblock %}

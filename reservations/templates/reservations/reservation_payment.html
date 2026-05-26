@@ -1,0 +1,92 @@
+{% extends 'layouts/base.html' %}
+{% load i18n %}
+
+{% block content %}
+<div class="bg-gray-950 min-h-screen py-16 px-4 text-gray-100 flex items-center justify-center">
+    <div class="max-w-xl w-full">
+        
+        <div class="flex items-center gap-4 mb-8">
+            <a href="{% url 'reservations:detail' reservation.id %}?from={{ request.GET.from }}" class="bg-gray-900 p-3 rounded-xl border border-gray-800 hover:bg-gray-800 transition-all">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+            </a>
+            <div>
+                <h1 class="text-2xl font-black text-white">{% translate "Método de Pago" %}</h1>
+                <p class="text-xs text-gray-500">
+                    {% blocktranslate with res_id=reservation.id prop_titulo=reservation.propiedad.titulo %}Reserva #{{ res_id }} &bull; {{ prop_titulo }}{% endblocktranslate %}
+                </p>
+            </div>
+        </div>
+
+        <div class="bg-gradient-to-r from-blue-900/40 to-indigo-900/40 border border-blue-500/30 rounded-3xl p-6 mb-8 flex justify-between items-center backdrop-blur-sm">
+            <div>
+                <p class="text-xs font-bold uppercase tracking-widest text-blue-400">{% translate "Total a liquidar" %}</p>
+                <p class="text-xs text-gray-400 mt-1">
+                    {% blocktranslate with date_in=reservation.check_in|date:"d/m/Y" date_out=reservation.check_out|date:"d/m/Y" %}Estancia de {{ date_in }} al {{ date_out }}{% endblocktranslate %}
+                </p>
+            </div>
+            <p class="text-3xl font-black text-white">{{ reservation.precio_total }}€</p>
+        </div>
+
+        <p class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4 ml-1">{% translate "Selecciona una plataforma" %}</p>
+
+        <form method="POST" class="space-y-4">
+            {% csrf_token %}
+            
+            <button type="submit" name="metodo" value="CARD" 
+                    class="w-full bg-gray-900 border border-gray-800 rounded-2xl p-5 flex items-center justify-between hover:border-blue-500 hover:bg-gray-900/60 transition-all text-left group cursor-pointer">
+                <div class="flex items-center gap-4">
+                    <div class="w-14 h-10 bg-gray-950 rounded-lg flex items-center justify-center border border-gray-800 font-mono text-[10px] font-black text-gray-400 tracking-tighter">
+                        {% translate "CARD" %}
+                    </div>
+                    <div>
+                        <p class="text-sm font-bold text-white group-hover:text-blue-400 transition-colors">{% translate "Tarjeta de Crédito o Débito" %}</p>
+                        <p class="text-xs text-gray-500">{% translate "Visa, Mastercard, American Express" %}</p>
+                    </div>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </button>
+
+            <button type="submit" name="metodo" value="PAYPAL" 
+                    class="w-full bg-gray-900 border border-gray-800 rounded-2xl p-5 flex items-center justify-between hover:border-yellow-500 hover:bg-gray-900/60 transition-all text-left group cursor-pointer">
+                <div class="flex items-center gap-4">
+                    <div class="w-14 h-10 bg-[#003087]/10 rounded-lg flex items-center justify-center border border-[#003087]/30 font-serif italic font-black text-xs text-sky-400 tracking-tighter">
+                        {% translate "PayPal" %}
+                    </div>
+                    <div>
+                        <p class="text-sm font-bold text-white group-hover:text-yellow-500 transition-colors">{% translate "PayPal Express Checkout" %}</p>
+                        <p class="text-xs text-gray-500">{% translate "Paga de forma rápida usando tu cuenta de PayPal" %}</p>
+                    </div>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600 group-hover:text-yellow-500 group-hover:translate-x-1 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </button>
+
+            <button type="submit" name="metodo" value="BIZUM" 
+                    class="w-full bg-gray-900 border border-gray-800 rounded-2xl p-5 flex items-center justify-between hover:border-cyan-400 hover:bg-gray-900/60 transition-all text-left group cursor-pointer">
+                <div class="flex items-center gap-4">
+                    <div class="w-14 h-10 bg-cyan-950/40 rounded-lg flex items-center justify-center border border-cyan-500/30 font-sans font-bold text-xs text-cyan-400 tracking-tight">
+                        {% translate "bizum" %}
+                    </div>
+                    <div>
+                        <p class="text-sm font-bold text-white group-hover:text-cyan-400 transition-colors">{% translate "Bizum Instantáneo" %}</p>
+                        <p class="text-xs text-gray-500">{% translate "Usa tu número de teléfono móvil vinculado" %}</p>
+                    </div>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600 group-hover:text-cyan-400 group-hover:translate-x-1 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </button>
+
+        </form>
+
+        <p class="mt-8 text-center text-[10px] text-gray-600 uppercase tracking-widest font-bold">
+            {% translate "🔒 Entorno de pagos simulado con fines educativos" %}
+        </p>
+    </div>
+</div>
+{% endblock %}
