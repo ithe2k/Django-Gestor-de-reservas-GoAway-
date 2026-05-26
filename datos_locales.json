@@ -1,0 +1,1431 @@
+[
+{
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+        "action_time": "2026-05-18T10:41:16.342Z",
+        "user": 1,
+        "content_type": 6,
+        "object_id": "1",
+        "object_repr": "bx@bx.com",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+        "action_time": "2026-05-19T09:44:21.618Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "1",
+        "object_repr": "Villa de ensueño en Gran Canaria (Las Palmas de Gran Canaria)",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+        "action_time": "2026-05-23T23:06:12.693Z",
+        "user": 1,
+        "content_type": 6,
+        "object_id": "5",
+        "object_repr": "host2@host.com",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Tel\\u00e9fono\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+        "action_time": "2026-05-23T23:06:28.227Z",
+        "user": 1,
+        "content_type": 6,
+        "object_id": "6",
+        "object_repr": "host3@host.com",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Tel\\u00e9fono\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+        "action_time": "2026-05-23T23:06:50.979Z",
+        "user": 1,
+        "content_type": 6,
+        "object_id": "7",
+        "object_repr": "guest1@guest.com",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Tel\\u00e9fono\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+        "action_time": "2026-05-23T23:07:03.385Z",
+        "user": 1,
+        "content_type": 6,
+        "object_id": "8",
+        "object_repr": "guest2@guest.com",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Tel\\u00e9fono\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+        "action_time": "2026-05-23T23:07:11.346Z",
+        "user": 1,
+        "content_type": 6,
+        "object_id": "8",
+        "object_repr": "guest2@guest.com",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+        "action_time": "2026-05-23T23:07:46.102Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "3",
+        "object_repr": "Reserva 3 - Casa en la playa por sam@sam.com",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 9,
+    "fields": {
+        "action_time": "2026-05-23T23:07:55.141Z",
+        "user": 1,
+        "content_type": 6,
+        "object_id": "2",
+        "object_repr": "sam@sam.com",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 10,
+    "fields": {
+        "action_time": "2026-05-23T23:08:08.054Z",
+        "user": 1,
+        "content_type": 6,
+        "object_id": "3",
+        "object_repr": "roy@roy.com",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 11,
+    "fields": {
+        "action_time": "2026-05-23T23:13:37.703Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "6",
+        "object_repr": "Casa de prueba formulario (Barcelona)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+        "action_time": "2026-05-23T23:13:37.703Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "5",
+        "object_repr": "Casa de prueba (Madrid)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+        "action_time": "2026-05-23T23:13:37.703Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "4",
+        "object_repr": "Casa de prueba (Madrid)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 14,
+    "fields": {
+        "action_time": "2026-05-23T23:13:37.703Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "3",
+        "object_repr": "Casa de prueba (Madrid)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 15,
+    "fields": {
+        "action_time": "2026-05-23T23:13:37.703Z",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "1",
+        "object_repr": "Villa de ensueño en Gran Canaria (Las Palmas de Gran Canaria)",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+        "name": "Can add log entry",
+        "content_type": 1,
+        "codename": "add_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+        "name": "Can change log entry",
+        "content_type": 1,
+        "codename": "change_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+        "name": "Can delete log entry",
+        "content_type": 1,
+        "codename": "delete_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+        "name": "Can view log entry",
+        "content_type": 1,
+        "codename": "view_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+        "name": "Can add permission",
+        "content_type": 3,
+        "codename": "add_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+        "name": "Can change permission",
+        "content_type": 3,
+        "codename": "change_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+        "name": "Can delete permission",
+        "content_type": 3,
+        "codename": "delete_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+        "name": "Can view permission",
+        "content_type": 3,
+        "codename": "view_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+        "name": "Can add group",
+        "content_type": 2,
+        "codename": "add_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+        "name": "Can change group",
+        "content_type": 2,
+        "codename": "change_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+        "name": "Can delete group",
+        "content_type": 2,
+        "codename": "delete_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+        "name": "Can view group",
+        "content_type": 2,
+        "codename": "view_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+        "name": "Can add content type",
+        "content_type": 4,
+        "codename": "add_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+        "name": "Can change content type",
+        "content_type": 4,
+        "codename": "change_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+        "name": "Can delete content type",
+        "content_type": 4,
+        "codename": "delete_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+        "name": "Can view content type",
+        "content_type": 4,
+        "codename": "view_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+        "name": "Can add session",
+        "content_type": 5,
+        "codename": "add_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+        "name": "Can change session",
+        "content_type": 5,
+        "codename": "change_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+        "name": "Can delete session",
+        "content_type": 5,
+        "codename": "delete_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+        "name": "Can view session",
+        "content_type": 5,
+        "codename": "view_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+        "name": "Can add Usuario",
+        "content_type": 6,
+        "codename": "add_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+        "name": "Can change Usuario",
+        "content_type": 6,
+        "codename": "change_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+        "name": "Can delete Usuario",
+        "content_type": 6,
+        "codename": "delete_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+        "name": "Can view Usuario",
+        "content_type": 6,
+        "codename": "view_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+        "name": "Can add Propiedad",
+        "content_type": 7,
+        "codename": "add_propiedad"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+        "name": "Can change Propiedad",
+        "content_type": 7,
+        "codename": "change_propiedad"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+        "name": "Can delete Propiedad",
+        "content_type": 7,
+        "codename": "delete_propiedad"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+        "name": "Can view Propiedad",
+        "content_type": 7,
+        "codename": "view_propiedad"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+        "name": "Can add Imagen de Propiedad",
+        "content_type": 8,
+        "codename": "add_imagenpropiedad"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+        "name": "Can change Imagen de Propiedad",
+        "content_type": 8,
+        "codename": "change_imagenpropiedad"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+        "name": "Can delete Imagen de Propiedad",
+        "content_type": 8,
+        "codename": "delete_imagenpropiedad"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+        "name": "Can view Imagen de Propiedad",
+        "content_type": 8,
+        "codename": "view_imagenpropiedad"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+        "name": "Can add Reserva",
+        "content_type": 9,
+        "codename": "add_reservation"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+        "name": "Can change Reserva",
+        "content_type": 9,
+        "codename": "change_reservation"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+        "name": "Can delete Reserva",
+        "content_type": 9,
+        "codename": "delete_reservation"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+        "name": "Can view Reserva",
+        "content_type": 9,
+        "codename": "view_reservation"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 37,
+    "fields": {
+        "name": "Can add Pago",
+        "content_type": 10,
+        "codename": "add_payment"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 38,
+    "fields": {
+        "name": "Can change Pago",
+        "content_type": 10,
+        "codename": "change_payment"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 39,
+    "fields": {
+        "name": "Can delete Pago",
+        "content_type": 10,
+        "codename": "delete_payment"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 40,
+    "fields": {
+        "name": "Can view Pago",
+        "content_type": 10,
+        "codename": "view_payment"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+        "app_label": "admin",
+        "model": "logentry"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+        "app_label": "auth",
+        "model": "group"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+        "app_label": "auth",
+        "model": "permission"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+        "app_label": "contenttypes",
+        "model": "contenttype"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+        "app_label": "sessions",
+        "model": "session"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+        "app_label": "users",
+        "model": "user"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": {
+        "app_label": "propieties",
+        "model": "propiedad"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+        "app_label": "propieties",
+        "model": "imagenpropiedad"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": {
+        "app_label": "reservations",
+        "model": "reservation"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 10,
+    "fields": {
+        "app_label": "reservations",
+        "model": "payment"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "p58usqlskqapsqwerwcdx7399n4lsihp",
+    "fields": {
+        "session_data": ".eJxVjDsOwjAQBe_iGlnr-AeU9DlDtGuvcQDZUpxUiLvjSCmgfTPz3mLCbc3T1niZ5iiuQonT70YYnlx2EB9Y7lWGWtZlJrkr8qBNjjXy63a4fwcZW-51AOIEKugwIHmfAiGp6JGNvzgCPSTlLIMCMDF1R1tjXadnFZ1hNOLzBQoCOGk:1wRlij:Kq9TDDr-K3ahCTx3iefP4CqZUAE_317Fl2Rwr80sTi4",
+        "expire_date": "2026-06-09T06:56:57.290Z"
+    }
+},
+{
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$RChGwBCtLlLsOUZxZttvhx$Z7meXpm8Ey/j0ieowUOtZV82kDRVQMOBgikeyI85NdM=",
+        "last_login": "2026-05-26T06:56:57.286Z",
+        "is_superuser": true,
+        "first_name": "bx",
+        "last_name": "admin",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2026-05-18T10:39:33Z",
+        "email": "bx@bx.com",
+        "document_number": null,
+        "phone_number": null,
+        "country": null,
+        "role": "DEFAULT",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.user",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$N7XRAKouRCq2HmHRO3rALd$2G/dACwGXwhJwXbUS+GjdtC4mFDAT4a53mChjnmPP2s=",
+        "last_login": "2026-05-26T08:21:32.556Z",
+        "is_superuser": false,
+        "first_name": "host1",
+        "last_name": "-",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-05-23T22:35:45.817Z",
+        "email": "host1@host.com",
+        "document_number": "00000001H",
+        "phone_number": "123456789",
+        "country": "AQ",
+        "role": "HOST",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.user",
+    "pk": 5,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$pqvD3K01hkP4EJhmwAcxbU$VqLxR7o2lHlTnSgya4O4PRfn1JsGhA2AnUOl+02sWz4=",
+        "last_login": "2026-05-26T08:27:29.594Z",
+        "is_superuser": false,
+        "first_name": "host2",
+        "last_name": "-",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-05-23T22:37:17Z",
+        "email": "host2@host.com",
+        "document_number": "00000002H",
+        "phone_number": "123456788",
+        "country": "AG",
+        "role": "HOST",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.user",
+    "pk": 6,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$hdg2hWkCq5YOePmnvFvkLm$+BDf4vrxeJzT8bg1t/bSgea3dANs+wWUq+PjtdXG+RQ=",
+        "last_login": "2026-05-26T08:31:37.091Z",
+        "is_superuser": false,
+        "first_name": "host3",
+        "last_name": "-",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-05-23T22:38:38Z",
+        "email": "host3@host.com",
+        "document_number": "00000003H",
+        "phone_number": "123456777",
+        "country": "AW",
+        "role": "HOST",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.user",
+    "pk": 7,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$nRIe4fxqQA8uzq6LHWnja2$am3j54GoFyUQzPj4WCZdd8+MSgQUW6r20NbCTM7vzLs=",
+        "last_login": "2026-05-26T08:40:16.034Z",
+        "is_superuser": false,
+        "first_name": "guest1",
+        "last_name": "-",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-05-23T22:40:35Z",
+        "email": "guest1@guest.com",
+        "document_number": "00000001G",
+        "phone_number": "123456786",
+        "country": "BB",
+        "role": "GUEST",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.user",
+    "pk": 8,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$V34XnMI3C0drO7DcSL6Lhu$VNovtWz6lmYUSHQQu455oi+TueIuAR8OxKWNvL5iFCA=",
+        "last_login": "2026-05-24T01:18:56.352Z",
+        "is_superuser": false,
+        "first_name": "guest2",
+        "last_name": "-",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-05-23T22:41:49Z",
+        "email": "guest2@guest.com",
+        "document_number": "00000042G",
+        "phone_number": "123456987",
+        "country": "BE",
+        "role": "GUEST",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "propieties.propiedad",
+    "pk": 7,
+    "fields": {
+        "anfitrion": 4,
+        "titulo": "Villa Premium en Gran Canaria",
+        "descripcion": "Disfruta del paraíso en esta villa premium en Gran Canaria. Un refugio de auténtico lujo y privacidad con piscina privada, diseño vanguardista, espacios luminosos y vistas espectaculares. El lugar idóneo para desconectar y disfrutar del sol durante todo el año con el máximo confort.",
+        "ciudad": "Las Palmas de Gran Canaria",
+        "direccion": "Avenida America 1, 35001, Las Palmas GC",
+        "tamano": 300,
+        "capacidad_maxima": 8,
+        "precio_por_noche": "350.00",
+        "tiene_piscina": true,
+        "tiene_jardin": true,
+        "tiene_wifi": true,
+        "admite_mascotas": false,
+        "tiene_aire_acondicionado": true,
+        "imagen_principal": "media/propiedades/principales/thumbnail_propiedad_7_wo43pj",
+        "fecha_creacion": "2026-05-23T23:22:49.164Z",
+        "activo": true
+    }
+},
+{
+    "model": "propieties.propiedad",
+    "pk": 8,
+    "fields": {
+        "anfitrion": 4,
+        "titulo": "Chalet de lujo en Barcelona",
+        "descripcion": "Espectacular chalet de lujo en la zona más exclusiva de Barcelona. Un diseño vanguardista que fusiona elegancia y confort, con estancias amplias, piscina infinity y un jardín privado con vistas panorámicas a la ciudad y al mar. El refugio perfecto que combina privacidad absoluta y conexión urbana.",
+        "ciudad": "Barcelona",
+        "direccion": "Carrer del compte 3, Barcelona",
+        "tamano": 350,
+        "capacidad_maxima": 6,
+        "precio_por_noche": "400.00",
+        "tiene_piscina": true,
+        "tiene_jardin": true,
+        "tiene_wifi": true,
+        "admite_mascotas": true,
+        "tiene_aire_acondicionado": true,
+        "imagen_principal": "media/propiedades/principales/thumbnail_propiedad_8_oclqtk",
+        "fecha_creacion": "2026-05-23T23:33:03.296Z",
+        "activo": true
+    }
+},
+{
+    "model": "propieties.propiedad",
+    "pk": 9,
+    "fields": {
+        "anfitrion": 4,
+        "titulo": "Casa en la sierra de Madrid",
+        "descripcion": "Desconecta en esta acogedora casa de diseño en plena sierra de Madrid. El refugio vacacional perfecto, equipado con chimenea, un amplio jardín privado y vistas espectaculares a la montaña. Naturaleza, tranquilidad y rutas de ensueño a un paso de la ciudad, ideal para una escapada inolvidable.",
+        "ciudad": "Madrid",
+        "direccion": "Camino de Segura 12",
+        "tamano": 400,
+        "capacidad_maxima": 7,
+        "precio_por_noche": "250.00",
+        "tiene_piscina": false,
+        "tiene_jardin": true,
+        "tiene_wifi": true,
+        "admite_mascotas": true,
+        "tiene_aire_acondicionado": true,
+        "imagen_principal": "media/propiedades/principales/thumbnail_propiedad_9_yrecol",
+        "fecha_creacion": "2026-05-23T23:37:04.581Z",
+        "activo": true
+    }
+},
+{
+    "model": "propieties.propiedad",
+    "pk": 10,
+    "fields": {
+        "anfitrion": 5,
+        "titulo": "Casa En Vigo",
+        "descripcion": "Despierta frente al mar en esta espectacular casa de alquiler vacacional en la costa de Vigo. Un alojamiento luminoso y moderno con acceso directo a la playa, terraza panorámica ideal para contemplar las rías y todas las comodidades necesarias para disfrutar de una estancia inolvidable en Galicia.",
+        "ciudad": "Vigo",
+        "direccion": "Calle del Sol 1, Vigo",
+        "tamano": 300,
+        "capacidad_maxima": 8,
+        "precio_por_noche": "300.00",
+        "tiene_piscina": true,
+        "tiene_jardin": true,
+        "tiene_wifi": true,
+        "admite_mascotas": true,
+        "tiene_aire_acondicionado": true,
+        "imagen_principal": "media/propiedades/principales/thumbnail_propiedad_10_j7qqpy",
+        "fecha_creacion": "2026-05-23T23:47:32.524Z",
+        "activo": true
+    }
+},
+{
+    "model": "propieties.propiedad",
+    "pk": 11,
+    "fields": {
+        "anfitrion": 5,
+        "titulo": "Chalet en Mallorca",
+        "descripcion": "Exclusivo chalet de lujo en la costa de Palma de Mallorca. Una propiedad deslumbrante que ofrece estancias de diseño, piscina privada y una terraza espectacular con vistas infinitas al mar Mediterráneo. El refugio perfecto donde disfrutar de la brisa marina, el sol y la máxima privacidad en la isla.",
+        "ciudad": "Palma de Mallorca",
+        "direccion": "Carrer Major 1",
+        "tamano": 345,
+        "capacidad_maxima": 6,
+        "precio_por_noche": "500.00",
+        "tiene_piscina": true,
+        "tiene_jardin": true,
+        "tiene_wifi": true,
+        "admite_mascotas": true,
+        "tiene_aire_acondicionado": true,
+        "imagen_principal": "media/propiedades/principales/thumbnail_propiedad_11_bxfimu",
+        "fecha_creacion": "2026-05-23T23:50:52.863Z",
+        "activo": true
+    }
+},
+{
+    "model": "propieties.propiedad",
+    "pk": 12,
+    "fields": {
+        "anfitrion": 5,
+        "titulo": "Casa de Lujo en Bilbao",
+        "descripcion": "Impresionante casa de lujo en una de las zonas más cotizadas de Bilbao. Una vivienda de diseño vanguardista y espacios abiertos, con amplios ventanales, jardín privado y acabados de la más alta calidad. El refugio urbano perfecto que combina sofisticación, privacidad y comodidad a pocos minutos del centro.",
+        "ciudad": "Bilbao",
+        "direccion": "Calle Legazpi 23",
+        "tamano": 350,
+        "capacidad_maxima": 8,
+        "precio_por_noche": "600.00",
+        "tiene_piscina": true,
+        "tiene_jardin": true,
+        "tiene_wifi": true,
+        "admite_mascotas": false,
+        "tiene_aire_acondicionado": true,
+        "imagen_principal": "media/propiedades/principales/thumbnail_propiedad_12_ibgkki",
+        "fecha_creacion": "2026-05-23T23:54:44.666Z",
+        "activo": true
+    }
+},
+{
+    "model": "propieties.propiedad",
+    "pk": 13,
+    "fields": {
+        "anfitrion": 6,
+        "titulo": "Casa Rural  en Tenerife",
+        "descripcion": "Encantadora casa rural en Icod de los Vinos, Tenerife. Un refugio tradicional rodeado de naturaleza y viñedos, con vistas espectaculares al Teide y al océano Atlántico. Equipada con terraza, barbacoa y todo el confort, es el punto de partida ideal para explorar el norte de la isla y desconectar.",
+        "ciudad": "Icod de los vinos",
+        "direccion": "Calle Teneguia 5, Icod de los Vinos",
+        "tamano": 250,
+        "capacidad_maxima": 6,
+        "precio_por_noche": "200.00",
+        "tiene_piscina": true,
+        "tiene_jardin": true,
+        "tiene_wifi": true,
+        "admite_mascotas": true,
+        "tiene_aire_acondicionado": true,
+        "imagen_principal": "media/propiedades/principales/thumbnail_propiedad_13_cng0jv",
+        "fecha_creacion": "2026-05-23T23:59:41.436Z",
+        "activo": true
+    }
+},
+{
+    "model": "propieties.propiedad",
+    "pk": 14,
+    "fields": {
+        "anfitrion": 6,
+        "titulo": "Palacete en Sevilla",
+        "descripcion": "Majestuoso palacete histórico en el corazón de Sevilla. Una joya arquitectónica que combina el encanto del patio andaluz tradicional con el lujo contemporáneo, ofreciendo estancias señoriales, techos altos, terraza privada y acabados exclusivos. El refugio perfecto para vivir la esencia más pura y elegante de la ciudad.",
+        "ciudad": "Sevilla",
+        "direccion": "Calle Andujar del Rey 1, Sevilla",
+        "tamano": 600,
+        "capacidad_maxima": 12,
+        "precio_por_noche": "1200.00",
+        "tiene_piscina": true,
+        "tiene_jardin": true,
+        "tiene_wifi": true,
+        "admite_mascotas": true,
+        "tiene_aire_acondicionado": true,
+        "imagen_principal": "media/propiedades/principales/thumbnail_propiedad_14_l3yhst",
+        "fecha_creacion": "2026-05-24T00:03:55.488Z",
+        "activo": true
+    }
+},
+{
+    "model": "propieties.propiedad",
+    "pk": 15,
+    "fields": {
+        "anfitrion": 6,
+        "titulo": "Casa Cueva en La Palma",
+        "descripcion": "Vive una experiencia única en esta espectacular casa cueva en La Palma. Un alojamiento bioclimático excepcional que fusiona la arquitectura tradicional de la isla con el confort moderno, ofreciendo un ambiente acogedor, terraza privada y vistas abiertas al océano. El refugio perfecto para desconectar bajo el mejor cielo del mundo.",
+        "ciudad": "Sta. Cruz de La Palma",
+        "direccion": "El palmero 13, Sta. Cuz de La Plama",
+        "tamano": 140,
+        "capacidad_maxima": 6,
+        "precio_por_noche": "150.00",
+        "tiene_piscina": false,
+        "tiene_jardin": true,
+        "tiene_wifi": true,
+        "admite_mascotas": true,
+        "tiene_aire_acondicionado": true,
+        "imagen_principal": "media/propiedades/principales/thumbnail_propiedad_15_usoaw5",
+        "fecha_creacion": "2026-05-24T00:08:03.250Z",
+        "activo": true
+    }
+},
+{
+    "model": "propieties.imagenpropiedad",
+    "pk": 33,
+    "fields": {
+        "propiedad": 10,
+        "imagen": "propiedades/10/vigo3.jpg",
+        "fecha_subida": "2026-05-23T23:47:32.543Z"
+    }
+},
+{
+    "model": "propieties.imagenpropiedad",
+    "pk": 55,
+    "fields": {
+        "propiedad": 9,
+        "imagen": "media/propiedades/9/mad1_sw8mpn",
+        "fecha_subida": "2026-05-26T08:25:28.854Z"
+    }
+},
+{
+    "model": "propieties.imagenpropiedad",
+    "pk": 56,
+    "fields": {
+        "propiedad": 9,
+        "imagen": "media/propiedades/9/mad2_fex6y2",
+        "fecha_subida": "2026-05-26T08:25:30.214Z"
+    }
+},
+{
+    "model": "propieties.imagenpropiedad",
+    "pk": 57,
+    "fields": {
+        "propiedad": 9,
+        "imagen": "media/propiedades/9/mad3_md18xj",
+        "fecha_subida": "2026-05-26T08:25:31.128Z"
+    }
+},
+{
+    "model": "propieties.imagenpropiedad",
+    "pk": 58,
+    "fields": {
+        "propiedad": 9,
+        "imagen": "media/propiedades/9/mad4_mzqaov",
+        "fecha_subida": "2026-05-26T08:25:32.010Z"
+    }
+},
+{
+    "model": "propieties.imagenpropiedad",
+    "pk": 59,
+    "fields": {
+        "propiedad": 8,
+        "imagen": "media/propiedades/8/1_urg20v",
+        "fecha_subida": "2026-05-26T08:26:17.594Z"
+    }
+},
+{
+    "model": "propieties.imagenpropiedad",
+    "pk": 60,
+    "fields": {
+        "propiedad": 8,
+        "imagen": "media/propiedades/8/2_d0ciqu",
+        "fecha_subida": "2026-05-26T08:26:20.364Z"
+    }
+},
+{
+    "model": "propieties.imagenpropiedad",
+    "pk": 61,
+    "fields": {
+        "propiedad": 8,
+        "imagen": "media/propiedades/8/3_inis5u",
+        "fecha_subida": "2026-05-26T08:26:22.178Z"
+    }
+},
+{
+    "model": "propieties.imagenpropiedad",
+    "pk": 62,
+    "fields": {
+        "propiedad": 8,
+        "imagen": "media/propiedades/8/4_nj5ptx",
+        "fecha_subida": "2026-05-26T08:26:23.816Z"
+    }
+},
+{
+    "model": "propieties.imagenpropiedad",
+    "pk": 63,
+    "fields": {
+        "propiedad": 7,
+        "imagen": "media/propiedades/7/vlpa1_nume3q",
+        "fecha_subida": "2026-05-26T08:26:53.225Z"
+    }
+},
+{
+    "model": "propieties.imagenpropiedad",
+    "pk": 64,
+    "fields": {
+        "propiedad": 7,
+        "imagen": "media/propiedades/7/vlpa2_ff6q5w",
+        "fecha_subida": "2026-05-26T08:26:54.822Z"
+    }
+},
+{
+    "model": "propieties.imagenpropiedad",
+    "pk": 65,
+    "fields": {
+        "propiedad": 7,
+        "imagen": "media/propiedades/7/vlpa3_ql9xsb",
+        "fecha_subida": "2026-05-26T08:26:55.604Z"
+    }
+},
+{
+    "model": "propieties.imagenpropiedad",
+    "pk": 66,
+    "fields": {
+        "propiedad": 7,
+        "imagen": "media/propiedades/7/vlpa4_bgb9sw",
+        "fecha_subida": "2026-05-26T08:26:56.292Z"
+    }
+},
+{
+    "model": "propieties.imagenpropiedad",
+    "pk": 67,
+    "fields": {
+        "propiedad": 12,
+        "imagen": "media/propiedades/12/bil1_ilhhqk",
+        "fecha_subida": "2026-05-26T08:29:54.674Z"
+    }
+},
+{
+    "model": "propieties.imagenpropiedad",
+    "pk": 68,
+    "fields": {
+        "propiedad": 12,
+        "imagen": "media/propiedades/12/bil2_vmwlr2",
+        "fecha_subida": "2026-05-26T08:29:55.934Z"
+    }
+},
+{
+    "model": "propieties.imagenpropiedad",
+    "pk": 69,
+    "fields": {
+        "propiedad": 12,
+        "imagen": "media/propiedades/12/bil3_dbldu8",
+        "fecha_subida": "2026-05-26T08:29:56.646Z"
+    }
+},
+{
+    "model": "propieties.imagenpropiedad",
+    "pk": 70,
+    "fields": {
+        "propiedad": 12,
+        "imagen": "media/propiedades/12/bil4_or7lvm",
+        "fecha_subida": "2026-05-26T08:29:57.469Z"
+    }
+},
+{
+    "model": "propieties.imagenpropiedad",
+    "pk": 71,
+    "fields": {
+        "propiedad": 11,
+        "imagen": "media/propiedades/11/mll1_savj2w",
+        "fecha_subida": "2026-05-26T08:30:40.425Z"
+    }
+},
+{
+    "model": "propieties.imagenpropiedad",
+    "pk": 72,
+    "fields": {
+        "propiedad": 11,
+        "imagen": "media/propiedades/11/mll2_vi4j2i",
+        "fecha_subida": "2026-05-26T08:30:41.861Z"
+    }
+},
+{
+    "model": "propieties.imagenpropiedad",
+    "pk": 73,
+    "fields": {
+        "propiedad": 11,
+        "imagen": "media/propiedades/11/mll3_wevzea",
+        "fecha_subida": "2026-05-26T08:30:42.693Z"
+    }
+},
+{
+    "model": "propieties.imagenpropiedad",
+    "pk": 74,
+    "fields": {
+        "propiedad": 11,
+        "imagen": "media/propiedades/11/mll4_ypt8he",
+        "fecha_subida": "2026-05-26T08:30:43.478Z"
+    }
+},
+{
+    "model": "propieties.imagenpropiedad",
+    "pk": 75,
+    "fields": {
+        "propiedad": 10,
+        "imagen": "media/propiedades/10/vigo1_p1zleq",
+        "fecha_subida": "2026-05-26T08:31:09.931Z"
+    }
+},
+{
+    "model": "propieties.imagenpropiedad",
+    "pk": 76,
+    "fields": {
+        "propiedad": 10,
+        "imagen": "media/propiedades/10/vigo2_yg9fks",
+        "fecha_subida": "2026-05-26T08:31:11.346Z"
+    }
+},
+{
+    "model": "propieties.imagenpropiedad",
+    "pk": 77,
+    "fields": {
+        "propiedad": 10,
+        "imagen": "media/propiedades/10/vigo3_xcylyh",
+        "fecha_subida": "2026-05-26T08:31:13.371Z"
+    }
+},
+{
+    "model": "propieties.imagenpropiedad",
+    "pk": 78,
+    "fields": {
+        "propiedad": 10,
+        "imagen": "media/propiedades/10/vigo4_r108hh",
+        "fecha_subida": "2026-05-26T08:31:14.064Z"
+    }
+},
+{
+    "model": "propieties.imagenpropiedad",
+    "pk": 79,
+    "fields": {
+        "propiedad": 15,
+        "imagen": "media/propiedades/15/pal1_ioklaz",
+        "fecha_subida": "2026-05-26T08:32:08.012Z"
+    }
+},
+{
+    "model": "propieties.imagenpropiedad",
+    "pk": 80,
+    "fields": {
+        "propiedad": 15,
+        "imagen": "media/propiedades/15/pal2_bl5tit",
+        "fecha_subida": "2026-05-26T08:32:09.572Z"
+    }
+},
+{
+    "model": "propieties.imagenpropiedad",
+    "pk": 81,
+    "fields": {
+        "propiedad": 15,
+        "imagen": "media/propiedades/15/pal3_leh8go",
+        "fecha_subida": "2026-05-26T08:32:10.280Z"
+    }
+},
+{
+    "model": "propieties.imagenpropiedad",
+    "pk": 82,
+    "fields": {
+        "propiedad": 15,
+        "imagen": "media/propiedades/15/pal4_pwvp2v",
+        "fecha_subida": "2026-05-26T08:32:11.302Z"
+    }
+},
+{
+    "model": "propieties.imagenpropiedad",
+    "pk": 83,
+    "fields": {
+        "propiedad": 14,
+        "imagen": "media/propiedades/14/svv1_khunxr",
+        "fecha_subida": "2026-05-26T08:32:33.940Z"
+    }
+},
+{
+    "model": "propieties.imagenpropiedad",
+    "pk": 84,
+    "fields": {
+        "propiedad": 14,
+        "imagen": "media/propiedades/14/svv2_neqx66",
+        "fecha_subida": "2026-05-26T08:32:35.612Z"
+    }
+},
+{
+    "model": "propieties.imagenpropiedad",
+    "pk": 85,
+    "fields": {
+        "propiedad": 14,
+        "imagen": "media/propiedades/14/svv3_hckg1u",
+        "fecha_subida": "2026-05-26T08:32:36.919Z"
+    }
+},
+{
+    "model": "propieties.imagenpropiedad",
+    "pk": 86,
+    "fields": {
+        "propiedad": 14,
+        "imagen": "media/propiedades/14/svv4_p7zdb7",
+        "fecha_subida": "2026-05-26T08:32:37.592Z"
+    }
+},
+{
+    "model": "propieties.imagenpropiedad",
+    "pk": 87,
+    "fields": {
+        "propiedad": 13,
+        "imagen": "media/propiedades/13/ico1_uew37p",
+        "fecha_subida": "2026-05-26T08:33:07.408Z"
+    }
+},
+{
+    "model": "propieties.imagenpropiedad",
+    "pk": 88,
+    "fields": {
+        "propiedad": 13,
+        "imagen": "media/propiedades/13/ico2_s60pgp",
+        "fecha_subida": "2026-05-26T08:33:08.639Z"
+    }
+},
+{
+    "model": "propieties.imagenpropiedad",
+    "pk": 89,
+    "fields": {
+        "propiedad": 13,
+        "imagen": "media/propiedades/13/ico3_qhnlup",
+        "fecha_subida": "2026-05-26T08:33:09.306Z"
+    }
+},
+{
+    "model": "propieties.imagenpropiedad",
+    "pk": 90,
+    "fields": {
+        "propiedad": 13,
+        "imagen": "media/propiedades/13/ico4_j3pwhu",
+        "fecha_subida": "2026-05-26T08:33:10.123Z"
+    }
+},
+{
+    "model": "reservations.reservation",
+    "pk": 4,
+    "fields": {
+        "huesped": 7,
+        "propiedad": 7,
+        "check_in": "2026-06-01",
+        "check_out": "2026-06-06",
+        "precio_por_noche": "350.00",
+        "precio_total": "1750.00",
+        "huespedes_totales": 6,
+        "status": "CONFIRMED",
+        "created_at": "2026-05-24T00:10:22.773Z",
+        "updated_at": "2026-05-24T00:10:40.578Z"
+    }
+},
+{
+    "model": "reservations.reservation",
+    "pk": 5,
+    "fields": {
+        "huesped": 7,
+        "propiedad": 11,
+        "check_in": "2026-06-28",
+        "check_out": "2026-07-04",
+        "precio_por_noche": "500.00",
+        "precio_total": "3000.00",
+        "huespedes_totales": 4,
+        "status": "PENDING",
+        "created_at": "2026-05-24T00:11:36.979Z",
+        "updated_at": "2026-05-24T00:11:36.979Z"
+    }
+},
+{
+    "model": "reservations.reservation",
+    "pk": 6,
+    "fields": {
+        "huesped": 8,
+        "propiedad": 10,
+        "check_in": "2026-06-14",
+        "check_out": "2026-06-18",
+        "precio_por_noche": "300.00",
+        "precio_total": "1200.00",
+        "huespedes_totales": 6,
+        "status": "PENDING",
+        "created_at": "2026-05-24T00:12:58.365Z",
+        "updated_at": "2026-05-24T00:12:58.365Z"
+    }
+},
+{
+    "model": "reservations.reservation",
+    "pk": 7,
+    "fields": {
+        "huesped": 8,
+        "propiedad": 9,
+        "check_in": "2026-05-31",
+        "check_out": "2026-06-05",
+        "precio_por_noche": "250.00",
+        "precio_total": "1250.00",
+        "huespedes_totales": 4,
+        "status": "CONFIRMED",
+        "created_at": "2026-05-24T00:15:16.381Z",
+        "updated_at": "2026-05-24T00:15:24.804Z"
+    }
+},
+{
+    "model": "reservations.reservation",
+    "pk": 8,
+    "fields": {
+        "huesped": 6,
+        "propiedad": 12,
+        "check_in": "2026-08-02",
+        "check_out": "2026-08-06",
+        "precio_por_noche": "600.00",
+        "precio_total": "2400.00",
+        "huespedes_totales": 4,
+        "status": "PENDING",
+        "created_at": "2026-05-24T01:00:32.739Z",
+        "updated_at": "2026-05-24T01:00:32.739Z"
+    }
+},
+{
+    "model": "reservations.reservation",
+    "pk": 9,
+    "fields": {
+        "huesped": 8,
+        "propiedad": 13,
+        "check_in": "2026-09-20",
+        "check_out": "2026-09-25",
+        "precio_por_noche": "200.00",
+        "precio_total": "1000.00",
+        "huespedes_totales": 6,
+        "status": "CONFIRMED",
+        "created_at": "2026-05-24T01:20:09.744Z",
+        "updated_at": "2026-05-24T01:20:54.678Z"
+    }
+},
+{
+    "model": "reservations.payment",
+    "pk": 3,
+    "fields": {
+        "reserva": 4,
+        "cantidad": "1750.00",
+        "fecha_pago": "2026-05-24T00:10:40.563Z",
+        "metodo": "PAYPAL",
+        "transaccion_id": "SIM-4-1779581440"
+    }
+},
+{
+    "model": "reservations.payment",
+    "pk": 4,
+    "fields": {
+        "reserva": 7,
+        "cantidad": "1250.00",
+        "fecha_pago": "2026-05-24T00:15:24.782Z",
+        "metodo": "CARD",
+        "transaccion_id": "SIM-7-1779581724"
+    }
+},
+{
+    "model": "reservations.payment",
+    "pk": 5,
+    "fields": {
+        "reserva": 9,
+        "cantidad": "1000.00",
+        "fecha_pago": "2026-05-24T01:20:54.668Z",
+        "metodo": "BIZUM",
+        "transaccion_id": "SIM-9-1779585654"
+    }
+}
+]
