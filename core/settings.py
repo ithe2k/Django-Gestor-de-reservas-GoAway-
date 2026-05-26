@@ -1,6 +1,7 @@
 import os
 from pathlib import Path
 
+import dj_database_url
 from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -78,15 +79,12 @@ TEMPLATES = [
 WSGI_APPLICATION = "core.wsgi.application"
 
 # 🗄️ Database Configuration (PostgreSQL + Docker / Production fallback)
+# 🗄️ Database Configuration (PostgreSQL con soporte para URL unificada)
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.environ.get("DB_NAME", "gestor_de_reservas_db"),
-        "USER": os.environ.get("DB_USER", "bx_user"),
-        "PASSWORD": os.environ.get("DB_PASSWORD", "mi_password_segura"),
-        "HOST": os.environ.get("DB_HOST", "127.0.0.1"),
-        "PORT": os.environ.get("DB_PORT", "5433"),
-    }
+    "default": dj_database_url.config(
+        default=os.environ.get("DATABASE_URL"),
+        conn_max_age=600,
+    )
 }
 
 # Password validation
