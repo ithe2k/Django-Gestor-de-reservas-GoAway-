@@ -163,13 +163,46 @@
               <input type="hidden" name="check_out" value="{{ request.GET.check_out }}" />
               <input type="hidden" name="huespedes_totales" value="{{ request.GET.huespedes|default:1 }}" />
 
+              <div class="bg-gray-950 p-4 rounded-xl border border-gray-800 space-y-4 my-4">
+                <div class="flex items-center justify-between">
+                  <label for="id_is_recurrent" class="text-xs font-semibold text-gray-300 uppercase tracking-wider cursor-pointer">
+                    🔄 {% translate "¿Hacer reserva recurrente?" %}
+                  </label>
+                  <input type="checkbox" name="is_recurrent" id="id_is_recurrent" class="w-4 h-4 text-blue-600 bg-gray-900 border-gray-700 rounded focus:ring-blue-500 focus:ring-offset-gray-950 focus:ring-2 cursor-pointer transition-colors" />
+                </div>
+
+                <div id="recurrence-options" class="hidden space-y-3 pt-3 border-t border-gray-800/60">
+                  <div>
+                    <label for="id_frequency" class="block text-[11px] font-medium text-gray-400 uppercase tracking-wider mb-1">
+                      {% translate "Frecuencia" %}
+                    </label>
+                    <select name="frequency" id="id_frequency" class="w-full bg-gray-900 border border-gray-800 rounded-lg text-xs text-gray-200 px-3 py-2 focus:outline-none focus:border-blue-500 transition-colors">
+                      <option value="WEEKLY">{% translate "Semanal" %}</option>
+                      <option value="MONTHLY">{% translate "Mensual" %}</option>
+                      <option value="YEARLY" selected>{% translate "Anual (Vacacional)" %}</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label for="id_recurrence_count" class="block text-[11px] font-medium text-gray-400 uppercase tracking-wider mb-1">
+                      {% translate "Número de repeticiones" %}
+                    </label>
+                    <input type="number" name="recurrence_count" id="id_recurrence_count" min="1" max="10" value="2" class="w-full bg-gray-900 border border-gray-800 rounded-lg text-xs text-gray-200 px-3 py-2 focus:outline-none focus:border-blue-500 transition-colors" />
+                    <span class="text-[10px] text-gray-500 block mt-1">
+                      {% translate "Ejemplo: '2' creará la reserva actual y otra idéntica para el ciclo siguiente." %}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
               {% if user.is_authenticated %}
               <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-xl text-xs uppercase tracking-wider shadow-lg transition-colors cursor-pointer text-center block">
                 {% translate "Confirmar y Reservar Ahora" %}
               </button>
               {% else %}
-              <a href="{% url 'base:login' %}?next={{ request.get_full_path }}" class="w-full bg-gray-800 hover:bg-gray-700 text-gray-300 font-bold py-3.5 rounded-xl text-xs uppercase tracking-wider text-center block border border-gray-700/60 transition-colors">
-                {% translate "Inicia sesión para reservar" %}
+              <a href="{% url 'base:login' %}?next={% url 'reservations:create' propiedad.id %}?check_in={{ request.GET.check_in }}%26check_out={{ request.GET.check_out }}%26huespedes_totales={{ request.GET.huespedes|default:1 }}" 
+                 class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-xl text-xs uppercase tracking-wider text-center block shadow-lg transition-colors cursor-pointer">
+                {% translate "Inicia sesión para confirmar reserva" %}
               </a>
               {% endif %}
             </form>
@@ -209,24 +242,21 @@
     const closeBtn = document.getElementById('closeModal');
     const galleryItems = document.querySelectorAll('.js-gallery-item');
 
-    // 1. Abrir Modal al hacer clic en cualquier miniatura
     galleryItems.forEach(item => {
       item.addEventListener('click', () => {
         const fullImageUrl = item.getAttribute('data-url');
         modalImg.src = fullImageUrl;
         modal.classList.remove('hidden');
-        document.body.classList.add('overflow-hidden'); // Evita scroll de fondo
+        document.body.classList.add('overflow-hidden'); 
       });
     });
 
-    // 2. Función interna para cerrar el modal
     const closeModal = () => {
       modal.classList.add('hidden');
-      modalImg.src = ''; // Limpiamos origen para optimizar memoria
+      modalImg.src = ''; 
       document.body.classList.remove('overflow-hidden');
     };
 
-    // 3. Eventos de cierre (Botón, Tecla Escape y clic fuera de la imagen)
     closeBtn.addEventListener('click', closeModal);
     
     modal.addEventListener('click', (e) => {
@@ -238,6 +268,19 @@
         closeModal();
       }
     });
+
+    const checkboxRecurrent = document.getElementById('id_is_recurrent');
+    const recurrenceOptions = document.getElementById('recurrence-options');
+
+    if (checkboxRecurrent && recurrenceOptions) {
+      checkboxRecurrent.addEventListener('change', () => {
+        if (checkboxRecurrent.checked) {
+          recurrenceOptions.classList.remove('hidden');
+        } else {
+          recurrenceOptions.classList.add('hidden');
+        }
+      });
+    }
   });
 </script>
 {% endblock %}

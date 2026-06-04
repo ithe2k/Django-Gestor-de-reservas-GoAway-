@@ -25,13 +25,44 @@
 
     {% block extra_head %}{% endblock %}
 </head>
-<body class="min-h-screen flex flex-col bg-white text-gray-900">
+<body class="min-h-screen flex flex-col bg-gray-950 text-gray-100">
 
     <header class="bg-dark-bg text-white shadow-md">
         {% include '_includes/_navbar.html' %}
     </header>
 
-    <main class="  flex-grow">
+    <main class="flex-grow">
+        
+        {% if messages %}
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+            <div class="space-y-3">
+                {% for message in messages %}
+                    <div class="p-4 rounded-xl border flex items-center justify-between shadow-lg transition-all
+                        {% if 'success' in message.tags %} bg-emerald-500/10 border-emerald-500/20 text-emerald-400
+                        {% elif 'error' in message.tags or 'danger' in message.tags %} bg-red-500/10 border-red-500/20 text-red-400
+                        {% elif 'warning' in message.tags %} bg-amber-500/10 border-amber-500/20 text-amber-400
+                        {% else %} bg-gray-900 border-gray-800 text-gray-300 {% endif %}">
+                        
+                        <div class="flex items-center gap-3 text-sm font-medium">
+                            {% if 'success' in message.tags %}
+                                <span>✨</span>
+                            {% elif 'error' in message.tags or 'danger' in message.tags %}
+                                <span>⚠️</span>
+                            {% else %}
+                                <span>ℹ️</span>
+                            {% endif %}
+                            <p>{{ message }}</p>
+                        </div>
+
+                        <button onclick="this.parentElement.remove();" class="text-gray-500 hover:text-white transition-colors ml-4 focus:outline-none cursor-pointer text-xs font-bold p-1">
+                            ✕
+                        </button>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
         {% block content %}
         {% endblock %}
     </main>

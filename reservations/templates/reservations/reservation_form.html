@@ -7,7 +7,7 @@
         
         <div class="text-center mb-10">
             <h1 class="text-3xl font-black text-white tracking-tight">{% translate "Modificar tu Estancia" %}</h1>
-            <p class="text-gray-500 text-sm mt-2">{% translate "Ajusta las fechas de tu reserva en" %} <span class="text-[#0071c2] font-bold">{{ object.propiedad.titulo }}</span></p>
+            <p class="text-gray-500 text-sm mt-2">{% translate "Ajusta las fechas o recurrencias de tu reserva en" %} <span class="text-[#0071c2] font-bold">{{ object.propiedad.titulo }}</span></p>
         </div>
 
         <div class="bg-gray-900 border border-gray-800 rounded-3xl p-8 shadow-2xl">
@@ -31,27 +31,62 @@
             <form method="POST" class="space-y-6">
                 {% csrf_token %}
                 
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="space-y-2">
-                        <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest ml-1">{% translate "Nueva Entrada" %}</label>
-                        <input type="date" name="check_in" value="{{ form.check_in.value|date:'Y-m-d' }}" 
-                            class="w-full bg-gray-950 border border-gray-800 rounded-xl p-4 text-sm text-white focus:border-[#0071c2] focus:ring-1 focus:ring-[#0071c2] outline-none transition-all">
+         
+                <div id="date-fields-group" class="space-y-6">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest ml-1">{% translate "Nueva Entrada" %}</label>
+                            <input type="date" name="check_in" value="{{ form.check_in.value|date:'Y-m-d' }}" 
+                                class="w-full bg-gray-950 border border-gray-800 rounded-xl p-4 text-sm text-white focus:border-[#0071c2] focus:ring-1 focus:ring-[#0071c2] outline-none transition-all">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest ml-1">{% translate "Nueva Salida" %}</label>
+                            <input type="date" name="check_out" value="{{ form.check_out.value|date:'Y-m-d' }}" 
+                                class="w-full bg-gray-950 border border-gray-800 rounded-xl p-4 text-sm text-white focus:border-[#0071c2] focus:ring-1 focus:ring-[#0071c2] outline-none transition-all">
+                        </div>
                     </div>
+
                     <div class="space-y-2">
-                        <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest ml-1">{% translate "Nueva Salida" %}</label>
-                        <input type="date" name="check_out" value="{{ form.check_out.value|date:'Y-m-d' }}" 
-                            class="w-full bg-gray-950 border border-gray-800 rounded-xl p-4 text-sm text-white focus:border-[#0071c2] focus:ring-1 focus:ring-[#0071c2] outline-none transition-all">
+                        <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest ml-1">{% translate "Total de Huéspedes" %}</label>
+                        <input type="number" name="huespedes_totales" value="{{ form.huespedes_totales.value }}" 
+                            class="w-full bg-gray-950 border border-gray-800 rounded-xl p-4 text-sm text-white focus:border-[#0071c2] outline-none">
                     </div>
                 </div>
 
-                <div class="space-y-2">
-                    <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest ml-1">{% translate "Total de Huéspedes" %}</label>
-                    <input type="number" name="huespedes_totales" value="{{ form.huespedes_totales.value }}" 
-                        class="w-full bg-gray-950 border border-gray-800 rounded-xl p-4 text-sm text-white focus:border-[#0071c2] outline-none">
+            
+                <div class="bg-gray-950 p-6 rounded-2xl border border-gray-800 space-y-4">
+                    <div class="flex items-center justify-between">
+                        <label for="id_is_recurrent" class="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-1 cursor-pointer select-none">
+                            🔄 {% translate "¿Hacer reserva recurrente?" %}
+                        </label>
+                        <input type="checkbox" name="is_recurrent" id="id_is_recurrent" 
+                            {% if form.is_recurrent.value or form.initial.is_recurrent %}checked{% endif %}
+                            class="w-4 h-4 text-[#0071c2] bg-gray-900 border-gray-700 rounded focus:ring-[#0071c2] focus:ring-offset-gray-950 focus:ring-2 cursor-pointer transition-all">
+                    </div>
+
+               
+                    <div id="recurrence-options" class="hidden space-y-4 pt-4 border-t border-gray-900">
+                        <div class="space-y-2">
+                            <label for="id_frequency" class="text-[10px] font-bold text-gray-500 uppercase tracking-widest ml-1">{% translate "Frecuencia de Repetición" %}</label>
+                            <select name="frequency" id="id_frequency" 
+                                class="w-full bg-gray-900 border border-gray-800 rounded-xl p-4 text-sm text-white focus:border-[#0071c2] outline-none transition-all cursor-pointer">
+                                <option value="WEEKLY" {% if form.frequency.value == "WEEKLY" %}selected{% endif %}>{% translate "Semanal" %}</option>
+                                <option value="MONTHLY" {% if form.frequency.value == "MONTHLY" %}selected{% endif %}>{% translate "Mensual" %}</option>
+                                <option value="YEARLY" {% if form.frequency.value == "YEARLY" or not form.frequency.value %}selected{% endif %}>{% translate "Anual (Vacacional)" %}</option>
+                            </select>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label for="id_recurrence_count" class="text-[10px] font-bold text-gray-500 uppercase tracking-widest ml-1">{% translate "Número de Repeticiones" %}</label>
+                            <input type="number" name="recurrence_count" id="id_recurrence_count" min="1" max="10"
+                                value="{{ form.recurrence_count.value|default:form.initial.recurrence_count|default:2 }}" 
+                                class="w-full bg-gray-900 border border-gray-800 rounded-xl p-4 text-sm text-white focus:border-[#0071c2] outline-none transition-all">
+                        </div>
+                    </div>
                 </div>
 
                 <div class="pt-4 space-y-3">
-                    <button type="submit" class="w-full bg-[#0071c2] hover:bg-[#005999] text-white font-bold py-4 rounded-2xl text-xs uppercase tracking-widest transition-all shadow-lg shadow-blue-900/20">
+                    <button type="submit" class="w-full bg-[#0071c2] hover:bg-[#005999] text-white font-bold py-4 rounded-2xl text-xs uppercase tracking-widest transition-all shadow-lg shadow-blue-900/20 cursor-pointer">
                         {% translate "Guardar Cambios y Verificar" %}
                     </button>
                     <a href="{% url 'reservations:detail' object.id %}" class="block w-full bg-transparent text-gray-500 text-center font-bold py-2 rounded-2xl text-[10px] uppercase tracking-widest hover:text-white transition-all">
@@ -62,4 +97,25 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const checkboxRecurrent = document.getElementById('id_is_recurrent');
+        const recurrenceOptions = document.getElementById('recurrence-options');
+
+        const toggleRecurrence = () => {
+            if (checkboxRecurrent && checkboxRecurrent.checked) {
+                recurrenceOptions.classList.remove('hidden');
+            } else {
+                recurrenceOptions.classList.add('hidden');
+            }
+        };
+
+        if (checkboxRecurrent) {
+            checkboxRecurrent.addEventListener('change', toggleRecurrence);
+            toggleRecurrence(); 
+        }
+    });
+</script>
 {% endblock %}

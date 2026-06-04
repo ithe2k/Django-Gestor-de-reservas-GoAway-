@@ -114,6 +114,28 @@
                     </div>
                 </div>
 
+                {% if reservation.is_recurrent %}
+                    <div class="bg-gray-900 border border-gray-800 rounded-3xl p-6 shadow-2xl space-y-4">
+                        <h3 class="text-sm font-bold text-gray-400 uppercase tracking-widest border-b border-gray-800 pb-3">
+                            🔄 {% translate "Estado de Recurrencia" %}
+                        </h3>
+                        <div class="space-y-2.5 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-gray-500">{% translate "Suscripción activa" %}</span>
+                                <span class="text-emerald-400 font-bold">{% translate "SÍ" %}</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-500">{% translate "Frecuencia" %}</span>
+                                <span class="text-white font-semibold">{{ reservation.get_frequency_display }}</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-500">{% translate "Ciclos solicitados" %}</span>
+                                <span class="text-white font-mono">{{ reservation.recurrence_count }}</span>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+
                 {% if reservation.status == "PENDING" %}
                     <div class="p-5 bg-yellow-500/10 border border-yellow-500/20 rounded-2xl flex flex-col gap-4">
                         <div class="flex items-start gap-3">
@@ -131,9 +153,10 @@
                 {% endif %}
 
                 <div class="space-y-3">
-                    <a href="{% url 'reservations:update' reservation.id %}" class="block w-full bg-gray-800 hover:bg-gray-700 text-white text-center font-bold py-4 rounded-2xl text-xs uppercase tracking-widest transition-all border border-gray-700">
-                        {% translate "Modificar Fechas" %}
+                    <a href="{% url 'reservations:update' reservation.id %}" class="block w-full bg-[#0071c2] hover:bg-[#005999] text-white text-center font-bold py-4 rounded-2xl text-xs uppercase tracking-widest transition-all shadow-lg shadow-blue-900/10 border border-transparent">
+                        {% translate "Modificar Fechas / Recurrencia" %}
                     </a>
+                    
                     <a href="{% url 'reservations:delete' reservation.id %}" class="block w-full bg-gray-800 hover:bg-gray-700 text-red-500 text-center font-bold py-4 rounded-2xl text-xs uppercase tracking-widest transition-all border border-gray-700">
                         {% translate "Cancelar Reserva" %}
                     </a>
@@ -167,7 +190,12 @@
         const closeBtn = document.getElementById('closeModal');
         const galleryItems = document.querySelectorAll('.js-gallery-item');
 
-        // Abrir visor
+        const closeModal = () => {
+            modal.classList.add('hidden');
+            modalImg.src = '';
+            document.body.classList.remove('overflow-hidden');
+        };
+
         galleryItems.forEach(item => {
             item.addEventListener('click', () => {
                 const fullImageUrl = item.getAttribute('data-url');
@@ -177,24 +205,9 @@
             });
         });
 
-        // Cerrar visor
-        const closeModal = () => {
-            modal.classList.add('hidden');
-            modalImg.src = '';
-            document.body.classList.remove('overflow-hidden');
-        };
-
         closeBtn.addEventListener('click', closeModal);
-        
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) closeModal();
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
-                closeModal();
-            }
-        });
+        modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal(); });
     });
 </script>
 {% endblock %}

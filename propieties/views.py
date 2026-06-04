@@ -31,7 +31,7 @@ class AnfitrionDashboardView(LoginRequiredMixin, ListView):
         return Propiedad.objects.filter(anfitrion=self.request.user)
 
 
-class PropiedadDetailView(LoginRequiredMixin, DetailView):
+class PropiedadDetailView(DetailView):
     model = Propiedad
     template_name = "propieties/propieties_detail.html"
     context_object_name = "propiedad"

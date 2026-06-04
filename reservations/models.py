@@ -1,5 +1,6 @@
 import datetime
 
+from dateutil.relativedelta import relativedelta
 from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.db import models
@@ -15,6 +16,11 @@ class Reservation(models.Model):
         CONFIRMED = "CONFIRMED", _("Confirmada")
         CANCELED = "CANCELED", _("Cancelada")
         COMPLETED = "COMPLETED", _("Completada")
+
+    class FrequencyChoices(models.TextChoices):
+        WEEKLY = "WEEKLY", _("Semanal")
+        MONTHLY = "MONTHLY", _("Mensual")
+        YEARLY = "YEARLY", _("Anual")
 
     huesped = models.ForeignKey(
         settings.AUTH_USER_MODEL,
@@ -53,6 +59,25 @@ class Reservation(models.Model):
         default=StatusChoices.PENDING,
     )
 
+    # CAMPOS DE RECURRENCIA (El rastro para el Máster)
+    is_recurrent = models.BooleanField(
+        default=False, verbose_name=_("¿Es reserva recurrente?")
+    )
+    frequency = models.CharField(
+        _("Frecuencia de recurrencia"),
+        max_length=10,
+        choices=FrequencyChoices.choices,
+        blank=True,
+        null=True,
+    )
+    recurrence_count = models.PositiveIntegerField(
+        _("Número de repeticiones totales"),
+        default=1,
+        help_text=_(
+            "Indica cuántas temporadas/ciclos se va a repetir esta reserva (incluyendo la primera)."
+        ),
+    )
+
     # AUDITORÍA
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -86,7 +111,6 @@ class Reservation(models.Model):
                 })
 
         if self.propiedad and self.check_in and self.check_out:
-            # Buscamos reservas activas de esta propiedad (ignorando las canceladas)
             queryset = Reservation.objects.filter(propiedad=self.propiedad).exclude(
                 status="CANCELED"
             )
@@ -115,16 +139,53 @@ class Reservation(models.Model):
                     })
 
     def save(self, *args, **kwargs):
-        self.full_clean()
-
-        noches = (self.check_out - self.check_in).days
-
-        if not self.precio_por_noche:
+        # 1. Asegurar el precio por noche si viene vacío
+        if self.propiedad and not self.precio_por_noche:
             self.precio_por_noche = self.propiedad.precio_por_noche
 
-        self.precio_total = self.precio_por_noche * noches
+        # 2. Calcular precio total para la instancia actual
+        if self.check_in and self.check_out:
+            noches = (self.check_out - self.check_in).days
+            self.precio_total = self.precio_por_noche * noches
 
+        self.full_clean()
+
+        # 4. Guardar la reserva principal
+        is_new = self.pk is None
         super().save(*args, **kwargs)
+
+        if (
+            is_new
+            and self.is_recurrent
+            and self.recurrence_count > 1
+            and self.frequency
+        ):
+            current_check_in = self.check_in
+            current_check_out = self.check_out
+
+            for _ in range(1, self.recurrence_count):
+                if self.frequency == self.FrequencyChoices.WEEKLY:
+                    delta = relativedelta(weeks=1)
+                elif self.frequency == self.FrequencyChoices.MONTHLY:
+                    delta = relativedelta(months=1)
+                elif self.frequency == self.FrequencyChoices.YEARLY:
+                    delta = relativedelta(years=1)
+
+                current_check_in += delta
+                current_check_out += delta
+
+                Reservation.objects.create(
+                    huesped=self.huesped,
+                    propiedad=self.propiedad,
+                    check_in=current_check_in,
+                    check_out=current_check_out,
+                    precio_por_noche=self.precio_por_noche,
+                    huespedes_totales=self.huespedes_totales,
+                    status=self.status,
+                    is_recurrent=True,
+                    frequency=self.frequency,
+                    recurrence_count=1,
+                )
 
 
 class Payment(models.Model):

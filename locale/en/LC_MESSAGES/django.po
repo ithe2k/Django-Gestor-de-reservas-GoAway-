@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-25 02:57+0200\n"
-"PO-Revision-Date: 2026-05-25 02:57+0200\n"
+"POT-Creation-Date: 2026-06-04 11:03+0200\n"
+"PO-Revision-Date: 2026-06-04 11:10+0200\n"
 "Last-Translator: bx admin <bx@bx.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Translated-Using: django-rosetta 0.10.3\n"
 
-#: base/forms.py:10 users/models.py:73
+#: base/forms.py:10 users/models.py:68
 msgid "Usuario"
 msgstr "User"
 
@@ -43,46 +43,46 @@ msgstr "Terms"
 msgid "Contacto"
 msgstr "Contact"
 
-#: base/templates/_includes/_navbar.html:12
+#: base/templates/_includes/_navbar.html:9
 msgid "GoAway"
 msgstr ""
 
-#: base/templates/_includes/_navbar.html:49
-#: base/templates/_includes/_navbar.html:125
+#: base/templates/_includes/_navbar.html:46
+#: base/templates/_includes/_navbar.html:122
 #: users/templates/users/user_detail.html:4
 msgid "Mi Perfil"
 msgstr "My Profile"
 
-#: base/templates/_includes/_navbar.html:53
-#: base/templates/_includes/_navbar.html:129
+#: base/templates/_includes/_navbar.html:50
+#: base/templates/_includes/_navbar.html:126
 #: reservations/templates/reservations/reservations_list.html:4
 #: reservations/templates/reservations/reservations_list.html:12
 msgid "Mis Reservas"
 msgstr "My Reservations"
 
-#: base/templates/_includes/_navbar.html:58
-#: base/templates/_includes/_navbar.html:134
+#: base/templates/_includes/_navbar.html:55
+#: base/templates/_includes/_navbar.html:131
 msgid "Panel de Anfitrión"
 msgstr "Host Panel"
 
-#: base/templates/_includes/_navbar.html:67
-#: base/templates/_includes/_navbar.html:141
+#: base/templates/_includes/_navbar.html:64
+#: base/templates/_includes/_navbar.html:138
 msgid "Cerrar Sesión"
 msgstr "Log Out"
 
-#: base/templates/_includes/_navbar.html:72
-#: base/templates/_includes/_navbar.html:146
+#: base/templates/_includes/_navbar.html:69
+#: base/templates/_includes/_navbar.html:143
 #: base/templates/registration/login.html:4
 msgid "Iniciar Sesión"
 msgstr "Log In"
 
-#: base/templates/_includes/_navbar.html:75
-#: base/templates/_includes/_navbar.html:149
+#: base/templates/_includes/_navbar.html:72
+#: base/templates/_includes/_navbar.html:146
 #: base/templates/registration/signup.html:17
 msgid "Registrarse"
 msgstr "Sign Up"
 
-#: base/templates/_includes/_navbar.html:99
+#: base/templates/_includes/_navbar.html:96
 msgid "Idioma"
 msgstr "Language"
 
@@ -90,54 +90,54 @@ msgstr "Language"
 msgid "Inicio"
 msgstr "Home"
 
-#: base/templates/base/landing.html:29
+#: base/templates/base/landing.html:30
 msgid "Encuentra tu próxima escapada"
 msgstr "Find your next getaway"
 
-#: base/templates/base/landing.html:32
+#: base/templates/base/landing.html:33
 msgid "Reserva alojamientos únicos de forma rápida y segura."
 msgstr "Book unique accommodations quickly and securely."
 
-#: base/templates/base/landing.html:41
+#: base/templates/base/landing.html:42
 msgid "¿A dónde vas?"
 msgstr "Where are you going?"
 
-#: base/templates/base/landing.html:52
+#: base/templates/base/landing.html:53
 msgid "Selecciona un destino..."
 msgstr "Select a destination..."
 
-#: base/templates/base/landing.html:56
+#: base/templates/base/landing.html:57
 msgid "No hay destinos disponibles"
 msgstr "No destinations available"
 
-#: base/templates/base/landing.html:70
+#: base/templates/base/landing.html:71
 msgid "Llegada"
 msgstr "Check-in"
 
-#: base/templates/base/landing.html:77
+#: base/templates/base/landing.html:78
 #: reservations/templates/reservations/reservations_list.html:48
 msgid "Salida"
 msgstr "Check-out"
 
-#: base/templates/base/landing.html:84
-#: reservations/templates/reservations/reservation_detail.html:100
+#: base/templates/base/landing.html:85
+#: reservations/templates/reservations/reservation_detail.html:107
 #: reservations/templates/reservations/reservations_list.html:52
 msgid "Huéspedes"
 msgstr "Guests"
 
-#: base/templates/base/landing.html:89
+#: base/templates/base/landing.html:90
 msgid "Adultos"
 msgstr "Adults"
 
-#: base/templates/base/landing.html:93
+#: base/templates/base/landing.html:94
 msgid "N"
 msgstr "Ch"
 
-#: base/templates/base/landing.html:94
+#: base/templates/base/landing.html:95
 msgid "Niños"
 msgstr "Children"
 
-#: base/templates/base/landing.html:104
+#: base/templates/base/landing.html:105
 msgid "Buscar"
 msgstr "Search"
 
@@ -198,76 +198,76 @@ msgstr "Features and Capacity"
 msgid "Extras y Servicios (Marcar si dispone de ellos)"
 msgstr "Extras and Services (Check if available)"
 
-#: propieties/models.py:13
+#: propieties/models.py:11
 #: propieties/templates/propieties/dashboard_anfitrion.html:4
 msgid "Anfitrión"
 msgstr "Host"
 
-#: propieties/models.py:18
+#: propieties/models.py:16
 msgid "Título de la propiedad"
 msgstr "Property's Title"
 
-#: propieties/models.py:19
+#: propieties/models.py:17
 msgid "Descripción"
 msgstr "Description"
 
-#: propieties/models.py:21
+#: propieties/models.py:19
 msgid "Ciudad"
 msgstr "City"
 
-#: propieties/models.py:22
+#: propieties/models.py:20
 msgid "Dirección"
 msgstr "Address"
 
-#: propieties/models.py:25
+#: propieties/models.py:23
 msgid "Tamaño (m²)"
 msgstr "Size (m2)"
 
-#: propieties/models.py:26
+#: propieties/models.py:24
 msgid "Superficie útil en metros cuadrados"
 msgstr "Usable floor area in square meters"
 
-#: propieties/models.py:29
+#: propieties/models.py:27
 msgid "Capacidad máxima de huéspedes"
 msgstr "Maximum guest capacity"
 
-#: propieties/models.py:32 reservations/models.py:40
+#: propieties/models.py:30 reservations/models.py:44
 msgid "Precio por noche (€)"
 msgstr "Price per night (€)"
 
-#: propieties/models.py:36
+#: propieties/models.py:34
 msgid "¿Tiene Piscina?"
 msgstr "Does it have a pool?"
 
-#: propieties/models.py:38
+#: propieties/models.py:36
 msgid "¿Tiene Jardín?"
 msgstr "Does it have a garden?"
 
-#: propieties/models.py:39
+#: propieties/models.py:37
 msgid "¿Tiene Wi-Fi?"
 msgstr "Does it have Wi-Fi?"
 
-#: propieties/models.py:41
+#: propieties/models.py:39
 msgid "¿Admite Mascotas?"
 msgstr "Is this a pet-friendly property?"
 
-#: propieties/models.py:44
+#: propieties/models.py:42
 msgid "¿Tiene Aire Acondicionado?"
 msgstr "Does this property have air conditioning?"
 
-#: propieties/models.py:52
+#: propieties/models.py:49
 msgid "Imagen principal"
 msgstr "Main Image"
 
-#: propieties/models.py:58
+#: propieties/models.py:54
 msgid "Disponible para reservar"
 msgstr "Available for Booking"
 
-#: propieties/models.py:62 reservations/models.py:31
+#: propieties/models.py:58 reservations/models.py:35
 msgid "Propiedad"
 msgstr "Property"
 
-#: propieties/models.py:63
+#: propieties/models.py:59
 msgid "Propiedades"
 msgstr "Properties"
 
@@ -324,7 +324,7 @@ msgid "Sin imágenes disponibles"
 msgstr "No image available"
 
 #: propieties/templates/propieties/propieties_detail.html:25
-#: propieties/templates/propieties/propieties_detail.html:149
+#: propieties/templates/propieties/propieties_detail.html:156
 #: propieties/templates/propieties/search_results.html:78
 #: users/templates/users/user_detail.html:101
 msgid "noche"
@@ -341,7 +341,7 @@ msgstr "Area"
 #: propieties/templates/propieties/propieties_detail.html:44
 #, python-format
 msgid "%(tamano)s m²"
-msgstr ""
+msgstr "%(size)s m²"
 
 #: propieties/templates/propieties/propieties_detail.html:48
 msgid "Capacidad"
@@ -361,10 +361,8 @@ msgid "Descripción del alojamiento"
 msgstr "Accommodation Gallery"
 
 #: propieties/templates/propieties/propieties_detail.html:69
-#, fuzzy
-#| msgid "Sin imagen disponible"
 msgid "Sin descripción disponible."
-msgstr "No image available"
+msgstr "No description available."
 
 #: propieties/templates/propieties/propieties_detail.html:76
 msgid "Qué ofrece este lugar"
@@ -394,47 +392,91 @@ msgstr "Does this property have air conditioning?"
 msgid "Galería de fotos"
 msgstr "Accommodation Gallery"
 
-#: propieties/templates/propieties/propieties_detail.html:105
+#: propieties/templates/propieties/propieties_detail.html:106
 msgid "Imagen de"
 msgstr "Image of"
 
-#: propieties/templates/propieties/propieties_detail.html:118
+#: propieties/templates/propieties/propieties_detail.html:125
 msgid "Volver a mi Perfil"
 msgstr "Back to My Profile"
 
-#: propieties/templates/propieties/propieties_detail.html:122
+#: propieties/templates/propieties/propieties_detail.html:129
 msgid "Volver al Dashboard"
 msgstr "Back to the Dashboard"
 
-#: propieties/templates/propieties/propieties_detail.html:127
+#: propieties/templates/propieties/propieties_detail.html:134
 #: propieties/templates/propieties/propieties_forms.html:5
 msgid "Editar Propiedad"
 msgstr "Edit Property"
 
-#: propieties/templates/propieties/propieties_detail.html:130
+#: propieties/templates/propieties/propieties_detail.html:137
 msgid "Eliminar Propiedad"
 msgstr "Delete Property"
 
-#: propieties/templates/propieties/propieties_detail.html:141
+#: propieties/templates/propieties/propieties_detail.html:148
 msgid "Estancia Seleccionada"
 msgstr "Selected Stay"
 
-#: propieties/templates/propieties/propieties_detail.html:144
+#: propieties/templates/propieties/propieties_detail.html:151
 #: propieties/templates/propieties/search_results.html:24
 msgid "al"
 msgstr "to"
 
-#: propieties/templates/propieties/propieties_detail.html:161
+#: propieties/templates/propieties/propieties_detail.html:169
+#: reservations/templates/reservations/reservation_form.html:60
+msgid "¿Hacer reserva recurrente?"
+msgstr "Make a recurring reservation?"
+
+#: propieties/templates/propieties/propieties_detail.html:177
+#: reservations/templates/reservations/reservation_detail.html:128
+msgid "Frecuencia"
+msgstr "Frecuency"
+
+#: propieties/templates/propieties/propieties_detail.html:180
+#: reservations/models.py:21
+#: reservations/templates/reservations/reservation_form.html:73
+msgid "Semanal"
+msgstr "Weekly"
+
+#: propieties/templates/propieties/propieties_detail.html:181
+#: reservations/models.py:22
+#: reservations/templates/reservations/reservation_form.html:74
+msgid "Mensual"
+msgstr "Monthly"
+
+#: propieties/templates/propieties/propieties_detail.html:182
+#: reservations/templates/reservations/reservation_form.html:75
+msgid "Anual (Vacacional)"
+msgstr "Annual (Vacation)"
+
+#: propieties/templates/propieties/propieties_detail.html:188
+msgid "Número de repeticiones"
+msgstr "Number of repetitions"
+
+#: propieties/templates/propieties/propieties_detail.html:192
+msgid ""
+"Ejemplo: '2' creará la reserva actual y otra idéntica para el ciclo "
+"siguiente."
+msgstr ""
+"Example: ‘2’ will create the current reservation and an identical one for "
+"the next cycle."
+
+#: propieties/templates/propieties/propieties_detail.html:200
 msgid "Confirmar y Reservar Ahora"
 msgstr "Confirm and Book Now"
 
-#: propieties/templates/propieties/propieties_detail.html:165
-msgid "Inicia sesión para reservar"
-msgstr "Log in to book"
+#: propieties/templates/propieties/propieties_detail.html:205
+msgid "Inicia sesión para confirmar reserva"
+msgstr "Log in to confirm booking"
 
-#: propieties/templates/propieties/propieties_detail.html:175
+#: propieties/templates/propieties/propieties_detail.html:215
 msgid "← Volver al listado de búsqueda"
 msgstr "← Back to search results"
+
+#: propieties/templates/propieties/propieties_detail.html:234
+#: reservations/templates/reservations/reservation_detail.html:182
+msgid "Imagen ampliada"
+msgstr "Enlarged image"
 
 #: propieties/templates/propieties/propieties_forms.html:5
 msgid "Nueva Propiedad"
@@ -452,17 +494,17 @@ msgstr "Register New Property"
 msgid "Por favor, corrige los errores del formulario antes de continuar."
 msgstr "Please correct the errors in the form before continuing."
 
-#: propieties/templates/propieties/propieties_forms.html:98
+#: propieties/templates/propieties/propieties_forms.html:108
 #: users/templates/users/user_forms.html:61
 msgid "Cancelar"
 msgstr "Cancel"
 
-#: propieties/templates/propieties/propieties_forms.html:103
+#: propieties/templates/propieties/propieties_forms.html:113
 #: users/templates/users/user_forms.html:65
 msgid "Guardar Cambios"
 msgstr "Save Changes"
 
-#: propieties/templates/propieties/propieties_forms.html:105
+#: propieties/templates/propieties/propieties_forms.html:115
 msgid "Crear Propiedad"
 msgstr "Create Property"
 
@@ -542,50 +584,74 @@ msgstr "Cancelled"
 msgid "Completada"
 msgstr "Completed"
 
-#: reservations/models.py:25 users/models.py:63
+#: reservations/models.py:23
+msgid "Anual"
+msgstr ""
+
+#: reservations/models.py:29 users/models.py:58
 msgid "Huésped"
 msgstr "Guest"
 
-#: reservations/models.py:35
+#: reservations/models.py:39
 msgid "Fecha de entrada"
 msgstr "Check-in Date"
 
-#: reservations/models.py:36
+#: reservations/models.py:40
 msgid "Fecha de salida"
 msgstr "Check-out Date"
 
-#: reservations/models.py:43
+#: reservations/models.py:47
 msgid "Precio total (€)"
 msgstr "Total Price (€)"
 
-#: reservations/models.py:50
+#: reservations/models.py:54
 msgid "Número de huéspedes"
 msgstr "Number of guests"
 
-#: reservations/models.py:52
+#: reservations/models.py:56
 msgid "Estado de la reserva"
 msgstr "Reservation status"
 
-#: reservations/models.py:63
+#: reservations/models.py:64
+msgid "¿Es reserva recurrente?"
+msgstr "Is this a recurring reservation?"
+
+#: reservations/models.py:67
+msgid "Frecuencia de recurrencia"
+msgstr "Recurrence Frequency"
+
+#: reservations/models.py:74
+msgid "Número de repeticiones totales"
+msgstr "Total number of occurrences"
+
+#: reservations/models.py:77
+msgid ""
+"Indica cuántas temporadas/ciclos se va a repetir esta reserva (incluyendo la"
+" primera)."
+msgstr ""
+"Indicates how many seasons/cycles this reservation will be repeated "
+"(including the first one)."
+
+#: reservations/models.py:86
 msgid "Reserva"
 msgstr "Reservation"
 
-#: reservations/models.py:64
+#: reservations/models.py:87
 msgid "Reservas"
 msgstr "Reservation"
 
-#: reservations/models.py:81
+#: reservations/models.py:101
 msgid "La fecha de salida debe ser posterior a la fecha de entrada."
 msgstr "The check-out date must be later than the check-in date."
 
-#: reservations/models.py:90
+#: reservations/models.py:109
 #, python-brace-format
 msgid ""
 "El número de huéspedes excede la capacidad máxima de la propiedad "
 "({self.propiedad.capacidad_maxima})."
 msgstr "The number of guests exceeds the property's maximum capacity "
 
-#: reservations/models.py:120
+#: reservations/models.py:136
 msgid ""
 "Las fechas solicitadas no están disponibles o entran en conflicto con el día"
 " "
@@ -645,39 +711,55 @@ msgstr ""
 msgid "Galería del alojamiento"
 msgstr "Accommodation Gallery"
 
-#: reservations/templates/reservations/reservation_detail.html:92
+#: reservations/templates/reservations/reservation_detail.html:99
 msgid "Resumen Económico"
 msgstr "Financial Summary"
 
-#: reservations/templates/reservations/reservation_detail.html:96
+#: reservations/templates/reservations/reservation_detail.html:103
 msgid "Precio por noche"
 msgstr "Price per night "
 
-#: reservations/templates/reservations/reservation_detail.html:104
+#: reservations/templates/reservations/reservation_detail.html:111
 msgid "Total Pagado"
 msgstr "Total Paid"
 
-#: reservations/templates/reservations/reservation_detail.html:115
+#: reservations/templates/reservations/reservation_detail.html:120
+msgid "Estado de Recurrencia"
+msgstr "Recurrence Status"
+
+#: reservations/templates/reservations/reservation_detail.html:124
+msgid "Suscripción activa"
+msgstr "Active subscription"
+
+#: reservations/templates/reservations/reservation_detail.html:125
+msgid "SÍ"
+msgstr "YES"
+
+#: reservations/templates/reservations/reservation_detail.html:132
+msgid "Ciclos solicitados"
+msgstr "Requested sessions"
+
+#: reservations/templates/reservations/reservation_detail.html:144
 msgid "Tu estancia aún no está asegurada"
 msgstr "Your reservation is not yet confirmed"
 
-#: reservations/templates/reservations/reservation_detail.html:116
+#: reservations/templates/reservations/reservation_detail.html:145
 msgid "Realiza el pago para confirmar las fechas inmediatamente"
 msgstr "Complete the payment to confirm your dates immediately"
 
-#: reservations/templates/reservations/reservation_detail.html:121
+#: reservations/templates/reservations/reservation_detail.html:150
 msgid "Proceder al Pago"
 msgstr "Proceed to Payment"
 
-#: reservations/templates/reservations/reservation_detail.html:128
-msgid "Modificar Fechas"
-msgstr "Change Dates"
+#: reservations/templates/reservations/reservation_detail.html:157
+msgid "Modificar Fechas / Recurrencia"
+msgstr "Change Dates / Recurrence"
 
-#: reservations/templates/reservations/reservation_detail.html:131
+#: reservations/templates/reservations/reservation_detail.html:161
 msgid "Cancelar Reserva"
 msgstr "Cancel Reservation"
 
-#: reservations/templates/reservations/reservation_detail.html:136
+#: reservations/templates/reservations/reservation_detail.html:166
 msgid ""
 "Al modificar o cancelar, recuerda que las fechas se liberarán inmediatamente"
 " para otros usuarios."
@@ -690,36 +772,102 @@ msgid "Modificar tu Estancia"
 msgstr "Change stay"
 
 #: reservations/templates/reservations/reservation_form.html:10
-msgid "Ajusta las fechas de tu reserva en"
-msgstr ""
+msgid "Ajusta las fechas o recurrencias de tu reserva en"
+msgstr "Adjust the dates or recurrence of your reservation in"
 
 #: reservations/templates/reservations/reservation_form.html:17
 msgid "Atención"
 msgstr "Attention"
 
-#: reservations/templates/reservations/reservation_form.html:36
+#: reservations/templates/reservations/reservation_form.html:38
 msgid "Nueva Entrada"
 msgstr "New Check in"
 
-#: reservations/templates/reservations/reservation_form.html:41
+#: reservations/templates/reservations/reservation_form.html:43
 msgid "Nueva Salida"
 msgstr "New Check-out"
 
-#: reservations/templates/reservations/reservation_form.html:48
+#: reservations/templates/reservations/reservation_form.html:50
 msgid "Total de Huéspedes"
 msgstr "Total Number of Guests"
 
-#: reservations/templates/reservations/reservation_form.html:55
+#: reservations/templates/reservations/reservation_form.html:70
+msgid "Frecuencia de Repetición"
+msgstr "Repetition Frequency"
+
+#: reservations/templates/reservations/reservation_form.html:80
+msgid "Número de Repeticiones"
+msgstr "Number of Repetitions"
+
+#: reservations/templates/reservations/reservation_form.html:90
 msgid "Guardar Cambios y Verificar"
 msgstr "Save and review changes"
 
-#: reservations/templates/reservations/reservation_form.html:58
+#: reservations/templates/reservations/reservation_form.html:93
 msgid "Cancelar y volver"
 msgstr "Cancel and go back"
 
 #: reservations/templates/reservations/reservation_payment.html:15
 msgid "Método de Pago"
+msgstr "Payment method"
+
+#: reservations/templates/reservations/reservation_payment.html:17
+#, python-format
+msgid "Reserva #%(res_id)s &bull; %(prop_titulo)s"
 msgstr ""
+
+#: reservations/templates/reservations/reservation_payment.html:24
+msgid "Total a liquidar"
+msgstr "Total Payment"
+
+#: reservations/templates/reservations/reservation_payment.html:26
+#, python-format
+msgid "Estancia de %(date_in)s al %(date_out)s"
+msgstr ""
+
+#: reservations/templates/reservations/reservation_payment.html:32
+msgid "Selecciona una plataforma"
+msgstr "Select a payment platform"
+
+#: reservations/templates/reservations/reservation_payment.html:41
+msgid "CARD"
+msgstr ""
+
+#: reservations/templates/reservations/reservation_payment.html:44
+msgid "Tarjeta de Crédito o Débito"
+msgstr "Credit or Debit Card"
+
+#: reservations/templates/reservations/reservation_payment.html:45
+msgid "Visa, Mastercard, American Express"
+msgstr ""
+
+#: reservations/templates/reservations/reservation_payment.html:57
+msgid "PayPal"
+msgstr ""
+
+#: reservations/templates/reservations/reservation_payment.html:60
+msgid "PayPal Express Checkout"
+msgstr ""
+
+#: reservations/templates/reservations/reservation_payment.html:61
+msgid "Paga de forma rápida usando tu cuenta de PayPal"
+msgstr ""
+
+#: reservations/templates/reservations/reservation_payment.html:73
+msgid "bizum"
+msgstr ""
+
+#: reservations/templates/reservations/reservation_payment.html:76
+msgid "Bizum Instantáneo"
+msgstr "Bizum Instant"
+
+#: reservations/templates/reservations/reservation_payment.html:77
+msgid "Usa tu número de teléfono móvil vinculado"
+msgstr "Use your linked mobile phone number"
+
+#: reservations/templates/reservations/reservation_payment.html:88
+msgid "🔒 Entorno de pagos simulado con fines educativos"
+msgstr "🔒 Simulated payment environment for educational purposes"
 
 #: reservations/templates/reservations/reservations_list.html:13
 msgid "Gestiona todas tus reservas y estancias"
@@ -749,6 +897,44 @@ msgstr "You haven't made any reservations yet"
 msgid "Explorar propiedades"
 msgstr "Browse properties"
 
+#: reservations/views.py:97
+msgid "¡Reserva realizada correctamente! Tu estancia ha sido programada."
+msgstr "Reservation successful! Your stay has been booked."
+
+#: reservations/views.py:105
+msgid "Hubo un error al procesar tu reserva. Revisa las fechas elegidas."
+msgstr ""
+"An error occurred while processing your reservation. Please check the dates "
+"you selected."
+
+#: reservations/views.py:131
+#| msgid "El usuario ha sido creado correctamente"
+msgid "¡Tu reserva ha sido modificada correctamente!"
+msgstr "The user has been successfully created"
+
+#: reservations/views.py:165
+msgid ""
+"Lo sentimos, las nuevas fechas seleccionadas entran en conflicto con otra "
+"reserva activa o con los días de limpieza."
+msgstr ""
+"We're sorry, the new dates you selected conflict with another active "
+"reservation or with cleaning days."
+
+#: reservations/views.py:181
+msgid "La reserva ha sido cancelada. Las fechas vuelven a estar disponibles."
+msgstr "The reservation has been canceled. The dates are available again."
+
+#: reservations/views.py:196
+msgid "Esta reserva ya se encuentra pagada."
+msgstr ""
+
+#: reservations/views.py:213
+#, python-brace-format
+msgid ""
+"¡Pago procesado con éxito mediante {metodo_elegido}! Tu reserva está "
+"confirmada."
+msgstr ""
+
 #: users/admin.py:25
 msgid "Información Personal"
 msgstr "Personal Information"
@@ -761,51 +947,51 @@ msgstr "Permissions"
 msgid "Fechas Importantes"
 msgstr "Important Dates"
 
-#: users/models.py:15
+#: users/models.py:10
 msgid "El correo electrónico es obligatorio."
 msgstr "Email is required."
 
-#: users/models.py:29
+#: users/models.py:24
 msgid "El superusuario debe tener is_staff=True."
 msgstr ""
 
-#: users/models.py:31
+#: users/models.py:26
 msgid "El superusuario debe tener is_superuser=True."
 msgstr ""
 
-#: users/models.py:40
+#: users/models.py:35
 msgid "Dirección de correo electrónico"
 msgstr "Email addres"
 
-#: users/models.py:46
+#: users/models.py:41
 msgid "DNI o Pasaporte"
 msgstr "ID or Passport"
 
-#: users/models.py:50
+#: users/models.py:45
 msgid "Teléfono"
 msgstr "Phone Number"
 
-#: users/models.py:54
+#: users/models.py:49
 msgid "País"
 msgstr "Country"
 
-#: users/models.py:57
+#: users/models.py:52
 msgid "— Selecciona un país —"
 msgstr "— Select a country —"
 
-#: users/models.py:61
+#: users/models.py:56
 msgid "-"
 msgstr ""
 
-#: users/models.py:62
+#: users/models.py:57
 msgid "Anfitrion"
 msgstr "Host"
 
-#: users/models.py:66
+#: users/models.py:61
 msgid "Rol"
 msgstr "Role"
 
-#: users/models.py:74
+#: users/models.py:69
 msgid "Usuarios"
 msgstr "Users"
 
@@ -934,6 +1120,11 @@ msgstr "The user has been successfully updated"
 #: users/views.py:105
 msgid "El usuario ha sido eliminado correctamente"
 msgstr "The user has been successfully deleted"
+
+#: venv/lib/python3.12/site-packages/cloudinary/forms.py:55
+#: venv/lib/python3.12/site-packages/cloudinary/forms.py:124
+msgid "No file selected!"
+msgstr ""
 
 #: venv/lib/python3.12/site-packages/django/contrib/messages/apps.py:16
 msgid "Messages"
